@@ -48,3 +48,99 @@ tbody tr:nth-child(even) {
 .btn-config:hover {
     background-color: #FF3D00;
 }
+
+/* Reset de márgenes y padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Fondo y estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+}
+
+/* Contenedor principal */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Títulos */
+h1, h2, h3 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Estilos para los contenedores de contenido */
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+/* Estilo para los elementos que se deben apilar en dispositivos móviles */
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: calc(50% - 10px);
+    box-sizing: border-box;
+}
+
+.card h3 {
+    margin-bottom: 10px;
+}
+
+/* Media queries para dispositivos móviles */
+@media screen and (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .container {
+        width: 95%;
+    }
+
+    .content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    h1, h2, h3 {
+        text-align: center;
+    }
+}
+
+/* Media queries para pantallas muy pequeñas (móviles en modo retrato) */
+@media screen and (max-width: 480px) {
+    .navbar {
+        padding: 10px;
+    }
+
+    .navbar .logo a {
+        font-size: 20px;
+    }
+
+    .nav-links li a {
+        font-size: 16px;
+    }
+}
