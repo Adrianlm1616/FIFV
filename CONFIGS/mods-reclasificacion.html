@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Torneo FIFA</title>
+    <link rel="stylesheet" href="/FIFV/ASSETS/CSS/Navegacion.css">
+    <link rel="stylesheet" href="/FIFV/ASSETS/CONFIG/JS/CSS/mods.css">
+</head>
+<body>
+    <!-- Barra de navegación -->
+    <header>
+        <nav class="navbar">
+            <ul class="nav-links">
+                <li><a href="/FIFV/HTML/liga.html">LIGA</a></li>
+                <li><a href="/FIFV/HTML/cup.html">PINGUIN CUP</a></li>
+                <li><a href="/FIFV/HTML/mundial.html">FIFA WORLD CUP</a></li>
+                <li><a href="/FIFV/HTML/supercup.html">THE BEST CUP</a></li>
+                <li><a href="/FIFV/HTML/Reclasificacion.html">RECLASIFICACION</a></li>
+                <li><a href="/FIFV/HTML/jugadores.html">LEYENDAS</a></li>
+            </ul>
+            <div class="logo">
+               <a href="/FIFV/index.html"><img src="logo.png" alt="Logo FIFA"></a>
+            </div>
+            <div class="user-icon" onclick="toggleLogin()">
+                <img src="user-icon.png" alt="Usuario">
+            </div>
+        </nav>
+    </header>
+
+    <center><main>
+         <!-- Formulario para actualizar estadísticas -->
+<form id="form-config">
+    <label for="equipo">Selecciona el equipo:</label>
+    <select id="equipo">
+        <option value="Arsenal">Arsenal</option>
+        <option value="Atl. Madrid">Atl. Madrid</option>
+        <option value="Bayern Munich">Bayern Munich</option>
+        <option value="Barcelona">Barcelona</option>
+        <option value="Liverpool">Liverpool</option>
+        <option value="Man. City">Man. City</option>
+        <option value="PSG">PSG</option>
+        <option value="Real Madrid">Real Madrid</option>
+    </select>
+
+    <!-- Modificar estadísticas -->
+    <label for="partidos">Partidos Jugados:</label>
+    <input type="number" id="partidos" value="0" min="0" />
+
+    <label for="victorias">Victorias:</label>
+    <input type="number" id="victorias" value="0" min="0" />
+
+    <label for="empates">Empates:</label>
+    <input type="number" id="empates" value="0" min="0" />
+
+    <label for="derrotas">Derrotas:</label>
+    <input type="number" id="derrotas" value="0" min="0" />
+
+    <label for="golesFavor">Goles a favor:</label>
+    <input type="number" id="golesFavor" value="0" min="0" />
+
+    <label for="golesContra">Goles en contra:</label>
+    <input type="number" id="golesContra" value="0" min="0" />
+
+    <button type="submit">Actualizar estadísticas</button>
+</form>
+
+<!-- Botón para reiniciar la tabla -->
+<button id="reiniciar-tabla">Reiniciar tabla</button>
+
+    </main></center>
+
+    <!-- Barra lateral de inicio de sesión -->
+    <div id="login-sidebar" class="login-sidebar">
+        <div class="login-content">
+            <h2>Iniciar sesión</h2>
+            <form id="login-form">
+                <label for="username">Usuario:</label>
+                <input type="text" id="username" placeholder="Usuario" required>
+                <label for="password">Contraseña:</label>
+                <input type="password" id="password" placeholder="Contraseña" required>
+                <button type="submit">Ingresar</button>
+            </form>
+            <div id="admin-welcome" class="admin-welcome" style="display: none;">
+                <h3>Bienvenido, Admin</h3>
+                <button onclick="configurarTorneos()">Configurar Torneos</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/FIFV/ASSETS/JS/navbar.js"></script>
+    <script src="/FIFV/ASSETS/JS/reclasificacion.js"></script>
+</body>
+</html>
