@@ -127,7 +127,7 @@ let calendario = JSON.parse(localStorage.getItem("calendario")) || [
     { fecha: 3, equipo1: "L1", equipo2: "C1", resultado: "", terminado: false },
     { fecha: 3, equipo1: "L2", equipo2: "C2", resultado: "", terminado: false },
 
-    { fecha: "FINAL", equipo1: "CLAS. 1", equipo2: "CLAS. 2", resultado: "", terminado: false },
+    { fecha: 4, equipo1: "CLAS. 1", equipo2: "CLAS. 2", resultado: "", terminado: false },
 ];
 
 // Función para mostrar el calendario con resultados
