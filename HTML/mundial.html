@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Torneo FIFA</title>
-    <link rel="stylesheet" href="Navegacion.css">
-    <link rel="stylesheet" href="mundial.css">
+    <link rel="stylesheet" href="/FIFV/ASSETS/CSS/Navegacion.css">
+    <link rel="stylesheet" href="/FIFV/ASSETS/CSS/mundial.css">
 </head>
 <body>
     <!-- Barra de navegación -->
@@ -29,32 +29,37 @@
     </header>
 
     <main>
-        <h2>Mundial - Cuadrangular</h2>
-    
-        <!-- Tabla de clasificación -->
-        <h3>Tabla de Clasificación</h3>
-        <table id="tabla-clasificacion" border="1">
+        <h1>Mundial - Cuadrangular</h1>
+    <br>
+    <br>
+        <div class="container"></div>
+        <h1>Tabla de Posiciones - Liga</h1>
+
+        <table>
             <thead>
                 <tr>
+                    <th>Posición</th>
                     <th>Equipo</th>
-                    <th>Jugados</th>
-                    <th>Ganados</th>
-                    <th>Perdidos</th>
-                    <th>Empatados</th>
-                    <th>Goles a favor</th>
-                    <th>Goles en contra</th>
-                    <th>Goles de diferencia</th>
-                    <th>Pts</th>
+                    <th>Técnico</th>
+                    <th>Partidos Jugados</th>
+                    <th>Victorias</th>
+                    <th>Empates</th>
+                    <th>Derrotas</th>
+                    <th>Goles a Favor</th>
+                    <th>Goles en Contra</th>
+                    <th>Diferencia de Gol</th>
+                    <th>Puntos</th>
                 </tr>
             </thead>
-            <tbody>
-                <!-- La tabla de clasificación se llenará con datos -->
+            <tbody id="tabla-posiciones">
+                <!-- Aquí se agregarán los equipos -->
             </tbody>
         </table>
-    
-        <!-- Calendario de partidos -->
-        <h3>Calendario de Partidos</h3>
-        <table id="calendario">
+    </div>
+
+        <div class="container">
+            <h2>Calendario del Torneo</h2>
+        <table id="calendario" border="1">
             <thead>
                 <tr>
                     <th>Fecha</th>
@@ -63,9 +68,10 @@
                 </tr>
             </thead>
             <tbody>
-                <!-- Aquí se mostrarán los partidos -->
+                <!-- Los partidos se mostrarán aquí -->
             </tbody>
         </table>
+        </div>
     </main>
     
 
@@ -82,12 +88,12 @@
             </form>
             <div id="admin-welcome" class="admin-welcome" style="display: none;">
                 <h3>Bienvenido, Admin</h3>
-                <button onclick="configurarTorneos()">Configurar Torneos</button>
+                <a href="/FIFV/CONFIGS/mods-mundial.html"><button>Configurar Torneos</button></a>
             </div>
         </div>
     </div>
 
-    <script src="navbar.js"></script>
-    <script src="mundial.js"></script>
+    <script src="/FIFV/ASSETS/JS/navbar.js"></script>
+    <script src="/FIFV/ASSETS/JS/mundial.js"></script>
 </body>
 </html>

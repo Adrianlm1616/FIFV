@@ -1,27 +1,143 @@
-// Datos iniciales del torneo (cuadrangular)
-let equipos = [
-    { nombre: "Equipo A", tecnico: "", jugados: 0, ganados: 0, perdidos: 0, empatados: 0, golesAFavor: 0, golesEnContra: 0, golesDiferencia: 0, puntos: 0 },
-    { nombre: "Equipo B", tecnico: "", jugados: 0, ganados: 0, perdidos: 0, empatados: 0, golesAFavor: 0, golesEnContra: 0, golesDiferencia: 0, puntos: 0 },
-    { nombre: "Equipo C", tecnico: "", jugados: 0, ganados: 0, perdidos: 0, empatados: 0, golesAFavor: 0, golesEnContra: 0, golesDiferencia: 0, puntos: 0 },
-    { nombre: "Equipo D", tecnico: "", jugados: 0, ganados: 0, perdidos: 0, empatados: 0, golesAFavor: 0, golesEnContra: 0, golesDiferencia: 0, puntos: 0 }
+// Verificar si hay datos almacenados en localStorage
+const equipos = JSON.parse(localStorage.getItem('equipos')) || [
+    { equipo: "L1", tecnico: "POR DEFINIR", partidos: 0, victorias: 0, empates: 0, derrotas: 0, golesFavor: 0, golesContra: 0 },
+    { equipo: "L2", tecnico: "POR DEFINIR", partidos: 0, victorias: 0, empates: 0, derrotas: 0, golesFavor: 0, golesContra: 0 },
+    { equipo: "C1", tecnico: "POR DEFINIR", partidos: 0, victorias: 0, empates: 0, derrotas: 0, golesFavor: 0, golesContra: 0 },
+    { equipo: "C2", tecnico: "POR DEFINIR", partidos: 0, victorias: 0, empates: 0, derrotas: 0, golesFavor: 0, golesContra: 0 },
 ];
 
-// Datos de los partidos en el calendario
-let calendario = [
-    { fecha: 1, equipo1: "Equipo A", equipo2: "Equipo B", resultado: "", terminado: false },
-    { fecha: 1, equipo1: "Equipo C", equipo2: "Equipo D", resultado: "", terminado: false },
-    { fecha: 2, equipo1: "Equipo A", equipo2: "Equipo C", resultado: "", terminado: false },
-    { fecha: 2, equipo1: "Equipo B", equipo2: "Equipo D", resultado: "", terminado: false },
-    { fecha: 3, equipo1: "Equipo A", equipo2: "Equipo D", resultado: "", terminado: false },
-    { fecha: 3, equipo1: "Equipo B", equipo2: "Equipo C", resultado: "", terminado: false }
+// Calcular puntos y diferencia de gol
+function calcularPuntosYDiferenciaDeGol() {
+    equipos.forEach(equipo => {
+        equipo.diferenciaGol = equipo.golesFavor - equipo.golesContra;
+        equipo.puntos = equipo.victorias * 3 + equipo.empates; // 3 puntos por victoria y 1 por empate
+    });
+}
+
+// Ordenar equipos según puntos, diferencia de gol, y nombre
+function ordenarEquipos() {
+    equipos.sort((a, b) => {
+        if (b.puntos !== a.puntos) {
+            return b.puntos - a.puntos;
+        } else if (b.diferenciaGol !== a.diferenciaGol) {
+            return b.diferenciaGol - a.diferenciaGol;
+        } else {
+            return a.equipo.localeCompare(b.equipo); // Orden alfabético si hay empate en puntos y diferencia de gol
+        }
+    });
+}
+
+// Mostrar la tabla en el HTML
+function mostrarTabla() {
+    const tablaPosiciones = document.getElementById("tabla-posiciones");
+    tablaPosiciones.innerHTML = ""; // Limpiar tabla
+
+    calcularPuntosYDiferenciaDeGol();
+    ordenarEquipos();
+
+    equipos.forEach((equipo, index) => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+            <td>${index + 1}</td>
+            <td>${equipo.equipo}</td>
+            <td>${equipo.tecnico}</td>
+            <td>${equipo.partidos}</td>
+            <td>${equipo.victorias}</td>
+            <td>${equipo.empates}</td>
+            <td>${equipo.derrotas}</td>
+            <td>${equipo.golesFavor}</td>
+            <td>${equipo.golesContra}</td>
+            <td>${equipo.diferenciaGol}</td>
+            <td>${equipo.puntos}</td>
+        `;
+        tablaPosiciones.appendChild(row);
+    });
+}
+
+document.addEventListener("DOMContentLoaded", mostrarTabla);
+
+// Función para reiniciar la tabla a cero
+function reiniciarTabla() {
+    // Recorre todos los equipos y pone sus estadísticas a cero
+    equipos.forEach(equipo => {
+        equipo.victorias = 0;
+        equipo.empates = 0;
+        equipo.derrotas = 0;
+        equipo.golesFavor = 0;
+        equipo.golesContra = 0;
+        equipo.diferenciaGol = 0;
+        equipo.puntos = 0;
+        equipo.partidos = 0; // Reinicia los partidos jugados a 0
+    });
+
+    // Guardamos los equipos actualizados con las estadísticas en cero en localStorage
+    localStorage.setItem('equipos', JSON.stringify(equipos));
+
+    // Muestra un mensaje de éxito
+    alert("La tabla ha sido reiniciada.");
+    
+    // Actualiza la tabla en la página
+    mostrarTabla();
+}
+
+// Añadir un evento al botón "Reiniciar tabla"
+document.getElementById('reiniciar-tabla').addEventListener('click', reiniciarTabla);
+
+// Función para actualizar estadísticas cuando se envía el formulario
+document.getElementById('form-config').addEventListener('submit', function(event) {
+    event.preventDefault(); // Evitar la recarga de la página
+
+    const equipoSeleccionado = document.getElementById('equipo').value;
+    const partidos = parseInt(document.getElementById('partidos').value);  // Número de partidos jugados
+    const victorias = parseInt(document.getElementById('victorias').value);
+    const empates = parseInt(document.getElementById('empates').value);
+    const derrotas = parseInt(document.getElementById('derrotas').value);
+    const golesFavor = parseInt(document.getElementById('golesFavor').value);
+    const golesContra = parseInt(document.getElementById('golesContra').value);
+
+    // Buscar el equipo en la lista y actualizar sus estadísticas
+    const equipo = equipos.find(e => e.equipo === equipoSeleccionado);
+    if (equipo) {
+        // Sumar las nuevas estadísticas a las existentes
+        equipo.partidos += partidos; // Sumar partidos jugados
+        equipo.victorias += victorias;
+        equipo.empates += empates;
+        equipo.derrotas += derrotas;
+        equipo.golesFavor += golesFavor;
+        equipo.golesContra += golesContra;
+    }
+
+    // Guardar la nueva información en localStorage
+    localStorage.setItem('equipos', JSON.stringify(equipos));
+
+    alert("Estadísticas actualizadas con éxito");
+
+    // Actualiza la tabla de posiciones en la página
+    mostrarTabla();
+});
+
+// Inicializar los partidos y fechas desde localStorage, si no existe, se carga el calendario por defecto
+let calendario = JSON.parse(localStorage.getItem("calendario")) || [
+    { fecha: 1, equipo1: "C1", equipo2: "L2", resultado: "", terminado: false },
+    { fecha: 1, equipo1: "L1", equipo2: "C2", resultado: "", terminado: false },
+
+    { fecha: 2, equipo1: "C1", equipo2: "C2", resultado: "", terminado: false },
+    { fecha: 2, equipo1: "L1", equipo2: "L2", resultado: "", terminado: false },
+
+    { fecha: 3, equipo1: "L1", equipo2: "C1", resultado: "", terminado: false },
+    { fecha: 3, equipo1: "L2", equipo2: "C2", resultado: "", terminado: false },
+
+    { fecha: "FINAL", equipo1: "CLAS. 1", equipo2: "CLAS. 2", resultado: "", terminado: false },
 ];
 
-// Función para mostrar el calendario de partidos
+// Función para mostrar el calendario con resultados
 function mostrarCalendario() {
     const tabla = document.getElementById("calendario").getElementsByTagName("tbody")[0];
 
     calendario.forEach(partido => {
         const row = document.createElement("tr");
+
+        // Si el partido está terminado, añadir la clase 'terminado' para cambiar el color
         row.innerHTML = `
             <td>Fecha ${partido.fecha}</td>
             <td>${partido.equipo1} vs ${partido.equipo2}</td>
@@ -33,28 +149,22 @@ function mostrarCalendario() {
     });
 }
 
-// Función para mostrar la tabla de clasificación
-function mostrarTablaClasificacion() {
-    const tabla = document.getElementById("tabla-clasificacion").getElementsByTagName("tbody")[0];
+// Ejecutar la función cuando la página cargue
+document.addEventListener("DOMContentLoaded", mostrarCalendario);
 
-    equipos.forEach(equipo => {
-        const row = document.createElement("tr");
-        row.innerHTML = `
-            <td>${equipo.nombre}</td>
-            <td>${equipo.jugados}</td>
-            <td>${equipo.ganados}</td>
-            <td>${equipo.perdidos}</td>
-            <td>${equipo.empatados}</td>
-            <td>${equipo.golesAFavor}</td>
-            <td>${equipo.golesEnContra}</td>
-            <td>${equipo.golesDiferencia}</td>
-            <td>${equipo.puntos}</td>
-        `;
-        tabla.appendChild(row);
+// Función para cargar los partidos en el formulario
+function cargarPartidos() {
+    const selectPartido = document.getElementById("partido");
+
+    calendario.forEach((partido, index) => {
+        const option = document.createElement("option");
+        option.value = index;
+        option.textContent = `${partido.equipo1} vs ${partido.equipo2}`;
+        selectPartido.appendChild(option);
     });
 }
 
-// Función para actualizar los resultados de los partidos
+// Función para manejar el envío del formulario y actualizar el resultado
 document.getElementById("form-modificar").addEventListener("submit", function(event) {
     event.preventDefault();
 
@@ -63,66 +173,37 @@ document.getElementById("form-modificar").addEventListener("submit", function(ev
     const partidoIndex = selectPartido.value;
 
     if (resultado !== "") {
-        // Actualizar el resultado del partido
         calendario[partidoIndex].resultado = resultado;
         calendario[partidoIndex].terminado = true;
 
-        // Actualizar la tabla de clasificación
-        actualizarClasificacion();
+        alert("Resultado actualizado exitosamente");
 
-        // Guardar los datos en localStorage
+        // Actualizar la tabla en el calendario
         localStorage.setItem("calendario", JSON.stringify(calendario));
-        localStorage.setItem("equipos", JSON.stringify(equipos));
 
-        alert("Resultado actualizado correctamente");
-
-        // Actualizar la visualización
-        mostrarCalendario();
-        mostrarTablaClasificacion();
+        // Opcional: puedes recargar la página o redirigir al calendario
     }
 });
 
-// Función para actualizar la clasificación después de cada partido
-function actualizarClasificacion() {
-    calendario.forEach(partido => {
-        if (partido.terminado) {
-            const [golesEquipo1, golesEquipo2] = partido.resultado.split("-").map(Number);
+// Función para reiniciar el calendario
+document.getElementById("reiniciar-calendario").addEventListener("click", function() {
+    if (confirm("¿Estás seguro de que quieres reiniciar todos los resultados?")) {
+        // Reiniciar los partidos en el arreglo calendario
+        calendario.forEach(partido => {
+            partido.resultado = "";
+            partido.terminado = false;
+        });
 
-            // Actualizar estadísticas de los equipos
-            let equipo1 = equipos.find(equipo => equipo.nombre === partido.equipo1);
-            let equipo2 = equipos.find(equipo => equipo.nombre === partido.equipo2);
+        // Guardar los datos reiniciados en localStorage
+        localStorage.setItem("calendario", JSON.stringify(calendario));
 
-            equipo1.jugados++;
-            equipo2.jugados++;
+        // Actualizar la visualización en la página (recargando la tabla)
+        mostrarCalendario();
 
-            if (golesEquipo1 > golesEquipo2) {
-                equipo1.ganados++;
-                equipo2.perdidos++;
-                equipo1.puntos += 3;
-            } else if (golesEquipo1 < golesEquipo2) {
-                equipo2.ganados++;
-                equipo1.perdidos++;
-                equipo2.puntos += 3;
-            } else {
-                equipo1.empatados++;
-                equipo2.empatados++;
-                equipo1.puntos++;
-                equipo2.puntos++;
-            }
-
-            equipo1.golesAFavor += golesEquipo1;
-            equipo1.golesEnContra += golesEquipo2;
-            equipo2.golesAFavor += golesEquipo2;
-            equipo2.golesEnContra += golesEquipo1;
-
-            equipo1.golesDiferencia = equipo1.golesAFavor - equipo1.golesEnContra;
-            equipo2.golesDiferencia = equipo2.golesAFavor - equipo2.golesEnContra;
-        }
-    });
-}
-
-// Cargar los datos del torneo cuando la página cargue
-document.addEventListener("DOMContentLoaded", function() {
-    mostrarCalendario();
-    mostrarTablaClasificacion();
+        alert("Calendario reiniciado");
+    }
 });
+
+// Cargar los partidos al cargar la página
+document.addEventListener("DOMContentLoaded", cargarPartidos);
+
