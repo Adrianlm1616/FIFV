@@ -1,72 +1,31 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
-}
-
-header {
-    background-color: #333;
-    color: white;
     text-align: center;
-    padding: 20px;
 }
-
 .container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 20px;
-}
-
-.jugadores {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
-    width: 100%;
-    max-width: 1200px;
+    margin-top: 50px;
 }
-
-.jugador {
-    background-color: white;
-    padding: 15px;
+.item {
+    border: 1px solid #ccc;
+    padding: 10px;
     text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    transition: transform 0.3s ease;
 }
-
-.jugador:hover {
-    transform: scale(1.05);
+.item img {
+    max-width: 100%;
+    height: auto;
 }
-
-.jugador img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    margin-bottom: 15px;
-}
-
-.jugador h2 {
-    font-size: 18px;
-    margin-bottom: 10px;
-}
-
-.jugador p {
-    font-size: 14px;
-    margin-bottom: 10px;
-}
-
-button {
-    background-color: #007BFF;
+.item a {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: #007bff;
     color: white;
-    border: none;
-    padding: 10px 20px;
+    text-decoration: none;
     border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
 }
-
-button:hover {
+.item a:hover {
     background-color: #0056b3;
 }
