@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Torneo FIFA</title>
+    <link rel="stylesheet" href="Navegacion.css">
+    <link rel="stylesheet" href="mundial.css">
+</head>
+<body>
+    <!-- Barra de navegación -->
+    <header>
+        <nav class="navbar">
+            <ul class="nav-links">
+                <li><a href="liga.html">LIGA</a></li>
+                <li><a href="cup.html">PINGUIN CUP</a></li>
+                <li><a href="mundial.html">FIFA WORLD CUP</a></li>
+                <li><a href="supercup.html">THE BEST CUP</a></li>
+                <li><a href="Reclasificacion.html">RECLASIFICACION</a></li>
+                <li><a href="jugadores.html">LEYENDAS</a></li>
+            </ul>
+            <div class="logo">
+               <a href="Inicio.html"><img src="logo.png" alt="Logo FIFA"></a>
+            </div>
+            <div class="user-icon" onclick="toggleLogin()">
+                <img src="user-icon.png" alt="Usuario">
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Mundial - Cuadrangular</h2>
+    
+        <!-- Tabla de clasificación -->
+        <h3>Tabla de Clasificación</h3>
+        <table id="tabla-clasificacion" border="1">
+            <thead>
+                <tr>
+                    <th>Equipo</th>
+                    <th>Jugados</th>
+                    <th>Ganados</th>
+                    <th>Perdidos</th>
+                    <th>Empatados</th>
+                    <th>Goles a favor</th>
+                    <th>Goles en contra</th>
+                    <th>Goles de diferencia</th>
+                    <th>Pts</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- La tabla de clasificación se llenará con datos -->
+            </tbody>
+        </table>
+    
+        <!-- Calendario de partidos -->
+        <h3>Calendario de Partidos</h3>
+        <table id="calendario">
+            <thead>
+                <tr>
+                    <th>Fecha</th>
+                    <th>Partido</th>
+                    <th>Resultado</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Aquí se mostrarán los partidos -->
+            </tbody>
+        </table>
+    </main>
+    
+
+    <!-- Barra lateral de inicio de sesión -->
+    <div id="login-sidebar" class="login-sidebar">
+        <div class="login-content">
+            <h2>Iniciar sesión</h2>
+            <form id="login-form">
+                <label for="username">Usuario:</label>
+                <input type="text" id="username" placeholder="Usuario" required>
+                <label for="password">Contraseña:</label>
+                <input type="password" id="password" placeholder="Contraseña" required>
+                <button type="submit">Ingresar</button>
+            </form>
+            <div id="admin-welcome" class="admin-welcome" style="display: none;">
+                <h3>Bienvenido, Admin</h3>
+                <button onclick="configurarTorneos()">Configurar Torneos</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="navbar.js"></script>
+    <script src="mundial.js"></script>
+</body>
+</html>

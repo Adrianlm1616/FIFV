@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super Cup</title>
+    <link rel="stylesheet" href="liga.css">
+    <link rel="stylesheet" href="Navegacion.css">
+    <script>
+        // Función para actualizar los resultados y los partidos
+        function actualizarResultados() {
+            let semifinalistas = document.querySelectorAll('.semifinal td input');
+            let resultado1 = semifinalistas[0].value;
+            let resultado2 = semifinalistas[1].value;
+            
+            // Determinar el ganador de la semifinal
+            let ganador = '';
+            if (parseInt(resultado1) > parseInt(resultado2)) {
+                ganador = 'Equipo A'; // Primer equipo gana
+            } else if (parseInt(resultado2) > parseInt(resultado1)) {
+                ganador = 'Equipo B'; // Segundo equipo gana
+            } else {
+                ganador = 'Empate'; // En caso de empate
+            }
+
+            // Mostrar el ganador en la final
+            document.getElementById('ganador-semifinal').innerText = ganador;
+
+            // Deshabilitar inputs después de la semifinal para evitar cambios
+            for (let i = 0; i < semifinalistas.length; i++) {
+                semifinalistas[i].disabled = true;
+            }
+        }
+
+        // Función para actualizar el calendario del torneo
+        function actualizarCalendario() {
+            // Simulación de actualización del calendario
+            let fecha = new Date();
+            let fechaCalendario = document.createElement('li');
+            fechaCalendario.textContent = `Partido programado para el ${fecha.toLocaleDateString()}`;
+            document.getElementById('calendario').appendChild(fechaCalendario);
+        }
+    </script>
+</head>
+<body>
+    <!-- Barra de navegación -->
+    <header>
+        <nav class="navbar">
+            <ul>
+                <li class="submenu"><a href="liga.html">LIGA</a>
+                    <ul class="submenu">
+                        <li><a href="calendario.html">CALENDARIO</a></li>
+                    </ul>
+                </li>
+                <li class="submenu">
+                    <a href="cup.html">PIGUIN CUP</a>
+                </li>
+                <li><a href="mundial.html">FIFAV WORLD CUP</a></li>
+                <li class="submenu">
+                    <a href="supercup.html">THE BEST CUP</a>
+                </li>
+                <li><a href="Reclasificacion.html">RECLASIFICACION</a></li>
+                <li><a href="jugadores.html">LEYENDAS</a></li>
+            </ul>
+            <div class="logo">
+                <a href="Inicio.html"><img src="logo.png" alt="Logo EA FC 25"></a>
+            </div>
+            <div class="usuario">
+                <button onclick="mostrarLogin()">Login</button>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1>Super Cup</h1>
+        
+        <h2>Semifinal</h2>
+        <div class="semifinal">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Equipo</th>
+                        <th>Resultado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Equipo A</td>
+                        <td><input type="number" id="resultado-equipo-a" placeholder="Resultado" required></td>
+                    </tr>
+                    <tr>
+                        <td>Equipo B</td>
+                        <td><input type="number" id="resultado-equipo-b" placeholder="Resultado" required></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button onclick="actualizarResultados()">Actualizar Resultado</button>
+        </div>
+
+        <h2>Final</h2>
+        <p>El ganador de la semifinal se enfrentará al equipo que lo espera en la final para determinar al campeón.</p>
+        <h3>Ganador de la semifinal:</h3>
+        <p id="ganador-semifinal">Esperando resultado...</p>
+
+        <h2>Calendario</h2>
+        <ul id="calendario">
+            <li>Partido 1: Fecha programada para el 15/12/2024</li>
+            <li>Partido 2: Fecha programada para el 16/12/2024</li>
+            <li>Partido 3: Fecha programada para el 17/12/2024</li>
+        </ul>
+        <button onclick="actualizarCalendario()">Actualizar Calendario</button>
+    </div>
+</body>
+</html>

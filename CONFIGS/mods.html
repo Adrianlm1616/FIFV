@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Torneo FIFA</title>
+    <link rel="stylesheet" href="Navegacion.css">
+    <link rel="stylesheet" href="mods.css">
+</head>
+<body>
+    <!-- Barra de navegación -->
+    <header>
+        <nav class="navbar">
+            <ul class="nav-links">
+                <li><a href="liga.html">LIGA</a></li>
+                <li><a href="cup.html">PINGUIN CUP</a></li>
+                <li><a href="mundial.html">FIFA WORLD CUP</a></li>
+                <li><a href="supercup.html">THE BEST CUP</a></li>
+                <li><a href="Reclasificacion.html">RECLASIFICACION</a></li>
+                <li><a href="jugadores.html">LEYENDAS</a></li>
+            </ul>
+            <div class="logo">
+               <a href="Inicio.html"><img src="logo.png" alt="Logo FIFA"></a>
+            </div>
+            <div class="user-icon" onclick="toggleLogin()">
+                <img src="user-icon.png" alt="Usuario">
+            </div>
+        </nav>
+    </header>
+
+    <center><main>
+        <!-- Formulario para actualizar estadísticas -->
+<form id="form-config">
+    <label for="equipo">Selecciona el equipo:</label>
+    <select id="equipo">
+        <option value="Arsenal">Arsenal</option>
+        <option value="Atl. Madrid">Atl. Madrid</option>
+        <option value="Bayern Munich">Bayern Munich</option>
+        <option value="Barcelona">Barcelona</option>
+        <option value="Liverpool">Liverpool</option>
+        <option value="Man. City">Man. City</option>
+        <option value="PSG">PSG</option>
+        <option value="Real Madrid">Real Madrid</option>
+    </select>
+
+    <!-- Modificar estadísticas -->
+    <label for="partidos">Partidos Jugados:</label>
+    <input type="number" id="partidos" value="0" min="0" />
+
+    <label for="victorias">Victorias:</label>
+    <input type="number" id="victorias" value="0" min="0" />
+
+    <label for="empates">Empates:</label>
+    <input type="number" id="empates" value="0" min="0" />
+
+    <label for="derrotas">Derrotas:</label>
+    <input type="number" id="derrotas" value="0" min="0" />
+
+    <label for="golesFavor">Goles a favor:</label>
+    <input type="number" id="golesFavor" value="0" min="0" />
+
+    <label for="golesContra">Goles en contra:</label>
+    <input type="number" id="golesContra" value="0" min="0" />
+
+    <button type="submit">Actualizar estadísticas</button>
+</form>
+
+<!-- Botón para reiniciar la tabla -->
+<button id="reiniciar-tabla">Reiniciar tabla</button>
+
+
+
+<div>
+    <h2>Modificar Resultados</h2>
+
+    <!-- Formulario para modificar resultado -->
+    <form id="form-modificar">
+        <label for="partido">Selecciona el partido:</label>
+        <select id="partido">
+            <!-- Las opciones se llenarán con los partidos -->
+        </select>
+
+        <label for="resultado">Resultado:</label>
+        <input type="text" id="resultado" placeholder="Ejemplo: 2-1" />
+
+        <button type="submit">Actualizar Resultado</button>
+    </form>
+
+    <!-- Botón para reiniciar la tabla -->
+    <button id="reiniciar-calendario">Reiniciar calendario</button>
+</div>
+
+
+<h2>Modificar Resultados de la Copa</h2>
+
+<form id="form-modificar">
+    <!-- Seleccionar la fase -->
+    <label for="fase">Selecciona la fase:</label>
+    <select id="fase">
+        <option value="cuartos">Cuartos de Final</option>
+        <option value="semifinales">Semifinales</option>
+        <option value="final">Final</option>
+    </select>
+
+    <!-- Aquí los partidos por fase -->
+    <div id="partidos-cuartos" class="partidos">
+        <h3>Cuartos de Final</h3>
+        <select id="partido-cuarto" multiple>
+            <!-- Las opciones de cuartos se llenarán dinámicamente -->
+        </select>
+    </div>
+
+    <div id="partidos-semifinales" class="partidos" style="display: none;">
+        <h3>Semifinales</h3>
+        <select id="partido-semifinal" multiple>
+            <!-- Las opciones de semifinales se llenarán dinámicamente -->
+        </select>
+    </div>
+
+    <div id="partidos-final" class="partidos" style="display: none;">
+        <h3>Final</h3>
+        <select id="partido-final" multiple>
+            <!-- Las opciones de final se llenarán dinámicamente -->
+        </select>
+    </div>
+
+    <label for="resultado">Resultado:</label>
+    <input type="text" id="resultado" placeholder="Ejemplo: 2-1" />
+
+    <button type="submit">Actualizar Resultados</button>
+</form>
+
+
+
+<h2>Modificar Mundial - Cuadrangular</h2>
+
+    <!-- Formulario para seleccionar la fase y modificar partidos -->
+    <form id="form-modificar">
+        <label for="fase">Selecciona la Fase:</label>
+        <select id="fase">
+            <option value="calendario">Calendario</option>
+            <option value="tabla">Tabla de Clasificación</option>
+        </select>
+
+        <br><br>
+
+        <label for="partido">Selecciona el Partido:</label>
+        <select id="partido">
+            <!-- Los partidos se llenarán con datos dependiendo de la fase seleccionada -->
+        </select>
+
+        <br><br>
+
+        <label for="resultado">Resultado (Ejemplo: 2-1):</label>
+        <input type="text" id="resultado" placeholder="Resultado del partido">
+
+        <br><br>
+
+        <button type="submit">Actualizar Resultado</button>
+    </form>
+
+    <!-- Mostrar la tabla de clasificación -->
+    <h3>Tabla de Clasificación</h3>
+    <table id="tabla-clasificacion">
+        <thead>
+            <tr>
+                <th>Equipo</th>
+                <th>Jugados</th>
+                <th>Ganados</th>
+                <th>Perdidos</th>
+                <th>Empatados</th>
+                <th>Goles a favor</th>
+                <th>Goles en contra</th>
+                <th>Goles de diferencia</th>
+                <th>Pts</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Aquí se rellenarán los datos de los equipos -->
+        </tbody>
+    </table>
+
+    <br>
+
+</th>
+<h1>TABLA DE RECLASIFICACION</h1><br>
+         <!-- Formulario para actualizar estadísticas Reclasificacion-->
+<form id="form-config">
+    <label for="equipo">Selecciona el equipo:</label>
+    <select id="equipo">
+        <option value="Arsenal">Arsenal</option>
+        <option value="Atl. Madrid">Atl. Madrid</option>
+        <option value="Bayern Munich">Bayern Munich</option>
+        <option value="Barcelona">Barcelona</option>
+        <option value="Liverpool">Liverpool</option>
+        <option value="Man. City">Man. City</option>
+        <option value="PSG">PSG</option>
+        <option value="Real Madrid">Real Madrid</option>
+    </select>
+
+    <!-- Modificar estadísticas Reclasificacion-->
+    <label for="partidos">Partidos Jugados:</label>
+    <input type="number" id="partidos" value="0" min="0" />
+
+    <label for="victorias">Victorias:</label>
+    <input type="number" id="victorias" value="0" min="0" />
+
+    <label for="empates">Empates:</label>
+    <input type="number" id="empates" value="0" min="0" />
+
+    <label for="derrotas">Derrotas:</label>
+    <input type="number" id="derrotas" value="0" min="0" />
+
+    <label for="golesFavor">Goles a favor:</label>
+    <input type="number" id="golesFavor" value="0" min="0" />
+
+    <label for="golesContra">Goles en contra:</label>
+    <input type="number" id="golesContra" value="0" min="0" />
+
+    <button type="submit">Actualizar estadísticas</button>
+</form>
+
+<!-- Botón para reiniciar la tabla Reclasificacion -->
+<button id="reiniciar-tabla">Reiniciar tabla</button>       
+    </main></center>
+
+    <!-- Barra lateral de inicio de sesión -->
+    <div id="login-sidebar" class="login-sidebar">
+        <div class="login-content">
+            <h2>Iniciar sesión</h2>
+            <form id="login-form">
+                <label for="username">Usuario:</label>
+                <input type="text" id="username" placeholder="Usuario" required>
+                <label for="password">Contraseña:</label>
+                <input type="password" id="password" placeholder="Contraseña" required>
+                <button type="submit">Ingresar</button>
+            </form>
+            <div id="admin-welcome" class="admin-welcome" style="display: none;">
+                <h3>Bienvenido, Admin</h3>
+                <button onclick="configurarTorneos()">Configurar Torneos</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="navbar.js"></script>
+    <script src="liga.js"></script>
+    <script src="calendario.js"></script>
+    <script src="cup.js"></script>
+    <script src="mundial.js"></script>
+    <script src="Reclasificasion.js"></script>
+</body>
+</html>

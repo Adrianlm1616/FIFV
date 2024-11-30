@@ -1,0 +1,137 @@
+/* Estilos generales para la página */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+}
+
+h2 {
+    text-align: center;
+    margin-top: 20px;
+    color: #333;
+}
+
+/* Estilo para los contenedores principales */
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+/* Estilo para las tablas */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+    font-size: 14px;
+}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+    font-weight: bold;
+}
+
+td {
+    background-color: #f9f9f9;
+}
+
+td:hover {
+    background-color: #f1f1f1;
+}
+
+/* Estilo para los encabezados dentro de cada tabla */
+h3 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Formulario para selección de fase */
+form {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+form label {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+form select, form input {
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 45%;
+    margin: 10px 0;
+}
+
+form button {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+form button:hover {
+    background-color: #45a049;
+}
+
+/* Estilo para las tablas de clasificación y calendario */
+table#tabla-clasificacion, table#calendario {
+    margin-top: 30px;
+    width: 100%;
+}
+
+table#calendario th {
+    background-color: #007BFF;
+}
+
+table#calendario td {
+    background-color: #f0f8ff;
+}
+
+/* Estilo para las filas y celdas en el calendario */
+td {
+    cursor: pointer;
+}
+
+/* Estilos de la página de calendario */
+#calendario {
+    margin-top: 30px;
+    background-color: #f4f4f9;
+    border-radius: 10px;
+}
+
+/* Responsividad */
+@media screen and (max-width: 768px) {
+    .container {
+        width: 90%;
+    }
+
+    form select, form input {
+        width: 100%;
+        margin: 5px 0;
+    }
+
+    table th, table td {
+        font-size: 12px;
+    }
+}
