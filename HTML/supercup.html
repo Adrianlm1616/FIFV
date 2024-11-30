@@ -6,67 +6,24 @@
     <title>Super Cup</title>
     <link rel="stylesheet" href="liga.css">
     <link rel="stylesheet" href="Navegacion.css">
-    <script>
-        // Función para actualizar los resultados y los partidos
-        function actualizarResultados() {
-            let semifinalistas = document.querySelectorAll('.semifinal td input');
-            let resultado1 = semifinalistas[0].value;
-            let resultado2 = semifinalistas[1].value;
-            
-            // Determinar el ganador de la semifinal
-            let ganador = '';
-            if (parseInt(resultado1) > parseInt(resultado2)) {
-                ganador = 'Equipo A'; // Primer equipo gana
-            } else if (parseInt(resultado2) > parseInt(resultado1)) {
-                ganador = 'Equipo B'; // Segundo equipo gana
-            } else {
-                ganador = 'Empate'; // En caso de empate
-            }
-
-            // Mostrar el ganador en la final
-            document.getElementById('ganador-semifinal').innerText = ganador;
-
-            // Deshabilitar inputs después de la semifinal para evitar cambios
-            for (let i = 0; i < semifinalistas.length; i++) {
-                semifinalistas[i].disabled = true;
-            }
-        }
-
-        // Función para actualizar el calendario del torneo
-        function actualizarCalendario() {
-            // Simulación de actualización del calendario
-            let fecha = new Date();
-            let fechaCalendario = document.createElement('li');
-            fechaCalendario.textContent = `Partido programado para el ${fecha.toLocaleDateString()}`;
-            document.getElementById('calendario').appendChild(fechaCalendario);
-        }
-    </script>
 </head>
 <body>
     <!-- Barra de navegación -->
     <header>
         <nav class="navbar">
-            <ul>
-                <li class="submenu"><a href="liga.html">LIGA</a>
-                    <ul class="submenu">
-                        <li><a href="calendario.html">CALENDARIO</a></li>
-                    </ul>
-                </li>
-                <li class="submenu">
-                    <a href="cup.html">PIGUIN CUP</a>
-                </li>
-                <li><a href="mundial.html">FIFAV WORLD CUP</a></li>
-                <li class="submenu">
-                    <a href="supercup.html">THE BEST CUP</a>
-                </li>
-                <li><a href="Reclasificacion.html">RECLASIFICACION</a></li>
-                <li><a href="jugadores.html">LEYENDAS</a></li>
+            <ul class="nav-links">
+                <li><a href="/FIFV/HTML/liga.html">LIGA</a></li>
+                <li><a href="/FIFV/HTML/cup.html">PINGUIN CUP</a></li>
+                <li><a href="/FIFV/HTML/mundial.html">FIFA WORLD CUP</a></li>
+                <li><a href="/FIFV/HTML/supercup.html">THE BEST CUP</a></li>
+                <li><a href="/FIFV/HTML/Reclasificacion.html">RECLASIFICACION</a></li>
+                <li><a href="/FIFV/HTML/jugadores.html">LEYENDAS</a></li>
             </ul>
             <div class="logo">
-                <a href="Inicio.html"><img src="logo.png" alt="Logo EA FC 25"></a>
+               <a href="/FIFV/index.html"><img src="logo.png" alt="Logo FIFA"></a>
             </div>
-            <div class="usuario">
-                <button onclick="mostrarLogin()">Login</button>
+            <div class="user-icon" onclick="toggleLogin()">
+                <img src="user-icon.png" alt="Usuario">
             </div>
         </nav>
     </header>
