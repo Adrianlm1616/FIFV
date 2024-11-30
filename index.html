@@ -1,1 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Torneo FIFA</title>
+    <link rel="stylesheet" href="Navegacion.css">
+    <link rel="stylesheet" href="Inicio.css">
+</head>
+<body>
+    <!-- Barra de navegación -->
+    <header>
+        <nav class="navbar">
+            <ul class="nav-links">
+                <li><a href="liga.html">LIGA</a></li>
+                <li><a href="cup.html">PINGUIN CUP</a></li>
+                <li><a href="mundial.html">FIFA WORLD CUP</a></li>
+                <li><a href="supercup.html">THE BEST CUP</a></li>
+                <li><a href="Reclasificacion.html">RECLASIFICACION</a></li>
+                <li><a href="jugadores.html">LEYENDAS</a></li>
+            </ul>
+            <div class="logo">
+               <a href="Inicio.html"><img src="logo.png" alt="Logo FIFA"></a>
+            </div>
+            <div class="user-icon" onclick="toggleLogin()">
+                <img src="user-icon.png" alt="Usuario">
+            </div>
+        </nav>
+    </header>
 
+    <center><main>
+        <!-- Carrusel de imágenes -->
+    <div class="carousel">
+        <div class="carousel-images">
+            <img src="image1.jpg" alt="Imagen 1">
+            <img src="image2.jpg" alt="Imagen 2">
+            <img src="image3.jpg" alt="Imagen 3">
+        </div>
+        <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+        <button class="next" onclick="moveSlide(1)">&#10095;</button>
+    </div>
+    </main></center><
+
+    <!-- Barra lateral de inicio de sesión -->
+    <div id="login-sidebar" class="login-sidebar">
+        <div class="login-content">
+            <h2>Iniciar sesión</h2>
+            <form id="login-form">
+                <label for="username">Usuario:</label>
+                <input type="text" id="username" placeholder="Usuario" required>
+                <label for="password">Contraseña:</label>
+                <input type="password" id="password" placeholder="Contraseña" required>
+                <button type="submit">Ingresar</button>
+            </form>
+            <div id="admin-welcome" class="admin-welcome" style="display: none;">
+                <h3>Bienvenido, Admin</h3>
+                <button onclick="configurarTorneos()">Configurar Torneos</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="navbar.js"></script>
+</body>
+</html>
