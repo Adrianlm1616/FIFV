@@ -60,6 +60,7 @@ header {
 
 /* Barra lateral de inicio de sesión */
 .login-sidebar {
+    padding-top: 20px;
     position: fixed;
     top: 0;
     right: 0;
