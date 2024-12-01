@@ -24,5 +24,5 @@ document.getElementById("login-form").addEventListener("submit", function(event)
 function configurarTorneos() {
     alert("Redirigiendo a la página de configuración de torneos.");
     // Aquí puedes redirigir a la página de configuración del torneo
-    window.location.href = "mods.html"; // O la URL que elijas
+    window.location.href = "mod"; // O la URL que elijas
 }
