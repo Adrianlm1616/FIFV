@@ -2,9 +2,9 @@
 const equipos = JSON.parse(localStorage.getItem('equipos')) || [
     { equipo: "Arsenal", tecnico: "Adrian Lara", partidos: 5, victorias: 4, empates: 1, derrotas: 0, golesFavor: 17, golesContra: 3 },
     { equipo: "Atl. Madrid", tecnico: "Jorge Castro", partidos: 4, victorias: 1, empates: 1, derrotas: 2, golesFavor: 6, golesContra: 7 },
-    { equipo: "Bayern Munich", tecnico: "Carlos Ortega", partidos: 6, victorias: 4, empates: 0, derrotas: 2, golesFavor: 14, golesContra: 9 },
+    { equipo: "Bayern Munich", tecnico: "Carlos Ortega", partidos: 5, victorias: 4, empates: 0, derrotas: 1, golesFavor: 14, golesContra: 8 },
     { equipo: "Real Madrid", tecnico: "Sebastian Flaco", partidos: 3, victorias: 0, empates: 0, derrotas: 3, golesFavor: 1, golesContra: 6 },
-    { equipo: "Liverpool", tecnico: "Camilo Paez", partidos: 4, victorias: 3, empates: 1, derrotas: 0, golesFavor: 8, golesContra: 2 },
+    { equipo: "Liverpool", tecnico: "Camilo Paez", partidos: 3, victorias: 2, empates: 1, derrotas: 0, golesFavor: 7, golesContra: 2 },
     { equipo: "Man. City", tecnico: "Tovar", partidos: 3, victorias: 0, empates: 1, derrotas: 2, golesFavor: 0, golesContra: 9 },
     { equipo: "PSG", tecnico: "Daniel Fandiño", partidos: 4, victorias: 1, empates: 0, derrotas: 3, golesFavor: 2, golesContra: 12 },
 ];
