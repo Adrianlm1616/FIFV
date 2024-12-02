@@ -1,12 +1,12 @@
 // Verificar si hay datos almacenados en localStorage
 const equipos = JSON.parse(localStorage.getItem('equipos')) || [
-    { equipo: "Arsenal", tecnico: "Adrian Lara", partidos: 2, victorias: 1, empates: 1, derrotas: 0, golesFavor: 8, golesContra: 2 },
-    { equipo: "Atl. Madrid", tecnico: "Jorge Castro", partidos: 2, victorias: 0, empates: 1, derrotas: 1, golesFavor: 3, golesContra: 4 },
-    { equipo: "Bayern Munich", tecnico: "Carlos Ortega", partidos: 3, victorias: 2, empates: 0, derrotas: 0, golesFavor: 6, golesContra: 6 },
-    { equipo: "Real Madrid", tecnico: "Sebastian Flaco", partidos: 2, victorias: 0, empates: 0, derrotas: 2, golesFavor: 0, golesContra: 2 },
+    { equipo: "Arsenal", tecnico: "Adrian Lara", partidos: 3, victorias: 2, empates: 1, derrotas: 0, golesFavor: 12, golesContra: 3 },
+    { equipo: "Atl. Madrid", tecnico: "Jorge Castro", partidos: 4, victorias: 1, empates: 1, derrotas: 2, golesFavor: 6, golesContra: 7 },
+    { equipo: "Bayern Munich", tecnico: "Carlos Ortega", partidos: 5, victorias: 4, empates: 0, derrotas: 1, golesFavor: 13, golesContra: 7 },
+    { equipo: "Real Madrid", tecnico: "Sebastian Flaco", partidos: 3, victorias: 0, empates: 0, derrotas: 3, golesFavor: 1, golesContra: 6 },
     { equipo: "Liverpool", tecnico: "Camilo Paez", partidos: 3, victorias: 2, empates: 1, derrotas: 0, golesFavor: 6, golesContra: 1 },
     { equipo: "Man. City", tecnico: "Tovar", partidos: 2, victorias: 0, empates: 1, derrotas: 1, golesFavor: 0, golesContra: 5 },
-    { equipo: "PSG", tecnico: "Daniel Fandiño", partidos: 2, victorias: 1, empates: 0, derrotas: 1, golesFavor: 1, golesContra: 4 },
+    { equipo: "PSG", tecnico: "Daniel Fandiño", partidos: 4, victorias: 1, empates: 0, derrotas: 3, golesFavor: 2, golesContra: 11 },
 ];
 
 // Calcular puntos y diferencia de gol
