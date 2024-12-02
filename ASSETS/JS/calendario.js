@@ -5,7 +5,7 @@ let calendario = JSON.parse(localStorage.getItem("calendario")) || [
     { fecha: 1, equipo1: "Liverpool", equipo2: "Man. City", resultado: "0-0", terminado: false },
 
     { fecha: 2, equipo1: "Arsenal", equipo2: "Bayern Munich", resultado: "6-0", terminado: false },
-    { fecha: 2, equipo1: "Atlético Madrid", equipo2: "Liverpool", resultado: "", terminado: false },
+    { fecha: 2, equipo1: "Atlético Madrid", equipo2: "Liverpool", resultado: "1-2", terminado: false },
     { fecha: 2, equipo1: "Real Maxdrid", equipo2: "PSG", resultado: "0-1", terminado: false },
 
     { fecha: 3, equipo1: "Arsenal", equipo2: "Real Madrid", resultado: "", terminado: false },
