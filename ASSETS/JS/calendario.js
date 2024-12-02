@@ -1,42 +1,34 @@
 // Inicializar los partidos y fechas desde localStorage, si no existe, se carga el calendario por defecto
 let calendario = JSON.parse(localStorage.getItem("calendario")) || [
-    { fecha: 1, equipo1: "Arsenal", equipo2: "Atlético Madrid", resultado: "", terminado: false },
-    { fecha: 1, equipo1: "Bayern Munich", equipo2: "Barcelona", resultado: "", terminado: false },
-    { fecha: 1, equipo1: "Liverpool", equipo2: "Man. City", resultado: "", terminado: false },
-    { fecha: 1, equipo1: "PSG", equipo2: "Real Madrid", resultado: "", terminado: false },
+    { fecha: 1, equipo1: "Arsenal", equipo2: "Atlético Madrid", resultado: "2-2", terminado: false },
+    { fecha: 1, equipo1: "Bayern Munich", equipo2: "Real Maxdrid", resultado: "1-0", terminado: false },
+    { fecha: 1, equipo1: "Liverpool", equipo2: "Man. City", resultado: "0-0", terminado: false },
 
     { fecha: 2, equipo1: "Arsenal", equipo2: "Bayern Munich", resultado: "", terminado: false },
     { fecha: 2, equipo1: "Atlético Madrid", equipo2: "Liverpool", resultado: "", terminado: false },
-    { fecha: 2, equipo1: "Barcelona", equipo2: "PSG", resultado: "", terminado: false },
-    { fecha: 2, equipo1: "Man. City", equipo2: "Real Madrid", resultado: "", terminado: false },
+    { fecha: 2, equipo1: "Real Maxdrid", equipo2: "PSG", resultado: "", terminado: false },
 
-    { fecha: 3, equipo1: "Arsenal", equipo2: "Barcelona", resultado: "", terminado: false },
+    { fecha: 3, equipo1: "Arsenal", equipo2: "Real Maxdrid", resultado: "", terminado: false },
     { fecha: 3, equipo1: "Atlético Madrid", equipo2: "Bayern Munich", resultado: "", terminado: false },
     { fecha: 3, equipo1: "Liverpool", equipo2: "PSG", resultado: "", terminado: false },
-    { fecha: 3, equipo1: "Man. City", equipo2: "Real Madrid", resultado: "", terminado: false },
 
     { fecha: 4, equipo1: "Arsenal", equipo2: "Liverpool", resultado: "", terminado: false },
     { fecha: 4, equipo1: "Atlético Madrid", equipo2: "PSG", resultado: "", terminado: false },
     { fecha: 4, equipo1: "Bayern Munich", equipo2: "Man. City", resultado: "", terminado: false },
-    { fecha: 4, equipo1: "Barcelona", equipo2: "Real Madrid", resultado: "", terminado: false },
 
     { fecha: 5, equipo1: "Arsenal", equipo2: "Man. City", resultado: "", terminado: false },
-    { fecha: 5, equipo1: "Atlético Madrid", equipo2: "Barcelona", resultado: "", terminado: false },
+    { fecha: 5, equipo1: "Atlético Madrid", equipo2: "Real Maxdrid", resultado: "", terminado: false },
     { fecha: 5, equipo1: "Bayern Munich", equipo2: "PSG", resultado: "", terminado: false },
-    { fecha: 5, equipo1: "Liverpool", equipo2: "Real Madrid", resultado: "", terminado: false },
 
     { fecha: 6, equipo1: "Arsenal", equipo2: "PSG", resultado: "", terminado: false },
     { fecha: 6, equipo1: "Atlético Madrid", equipo2: "Man. City", resultado: "", terminado: false },
-    { fecha: 6, equipo1: "Bayern Munich", equipo2: "Real Madrid", resultado: "", terminado: false },
-    { fecha: 6, equipo1: "Barcelona", equipo2: "Liverpool", resultado: "", terminado: false },
+    { fecha: 6, equipo1: "Real Maxdrid", equipo2: "Liverpool", resultado: "", terminado: false },
 
     { fecha: 7, equipo1: "Arsenal", equipo2: "PSG", resultado: "", terminado: false },
     { fecha: 7, equipo1: "Atlético Madrid", equipo2: "Bayern Munich", resultado: "", terminado: false },
-    { fecha: 7, equipo1: "Liverpool", equipo2: "Real Madrid", resultado: "", terminado: false },
-    { fecha: 7, equipo1: "Man. City", equipo2: "Barcelona", resultado: "", terminado: false },
+    { fecha: 7, equipo1: "Man. City", equipo2: "Real Maxdrid", resultado: "", terminado: false },
 
-    { fecha: 8, equipo1: "Arsenal", equipo2: "Real Madrid", resultado: "", terminado: false },
-    { fecha: 8, equipo1: "Atlético Madrid", equipo2: "Barcelona", resultado: "", terminado: false },
+    { fecha: 8, equipo1: "Atlético Madrid", equipo2: "Real Maxdrid", resultado: "", terminado: false },
     { fecha: 8, equipo1: "Bayern Munich", equipo2: "Liverpool", resultado: "", terminado: false },
     { fecha: 8, equipo1: "Man. City", equipo2: "PSG", resultado: "", terminado: false }
 ];
