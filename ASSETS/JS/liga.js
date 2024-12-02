@@ -1,13 +1,12 @@
 // Verificar si hay datos almacenados en localStorage
 const equipos = JSON.parse(localStorage.getItem('equipos')) || [
-    { equipo: "Arsenal", tecnico: "Adrian Lara", partidos: 0, victorias: 0, empates: 0, derrotas: 0, golesFavor: 0, golesContra: 0 },
-    { equipo: "Atl. Madrid", tecnico: "Jorge Castro", partidos: 0, victorias: 0, empates: 0, derrotas: 0, golesFavor: 0, golesContra: 0 },
-    { equipo: "Bayern Munich", tecnico: "Carlos Ortega", partidos: 0, victorias: 0, empates: 0, derrotas: 0, golesFavor: 0, golesContra: 0 },
-    { equipo: "Barcelona", tecnico: "Sebastian Flaco", partidos: 0, victorias: 0, empates: 0, derrotas: 0, golesFavor: 0, golesContra: 0 },
-    { equipo: "Liverpool", tecnico: "Camilo Paez", partidos: 0, victorias: 0, empates: 0, derrotas: 0, golesFavor: 0, golesContra: 0 },
-    { equipo: "Man. City", tecnico: "Tovar", partidos: 0, victorias: 0, empates: 0, derrotas: 0, golesFavor: 0, golesContra: 0 },
-    { equipo: "PSG", tecnico: "Daniel Fandiño", partidos: 0, victorias: 0, empates: 0, derrotas: 0, golesFavor: 0, golesContra: 0 },
-    { equipo: "Real Madrid", tecnico: "Extra", partidos: 0, victorias: 0, empates: 0, derrotas: 0, golesFavor: 0, golesContra: 0 }
+    { equipo: "Arsenal", tecnico: "Adrian Lara", partidos: 1, victorias: 0, empates: 1, derrotas: 0, golesFavor: 2, golesContra: 2 },
+    { equipo: "Atl. Madrid", tecnico: "Jorge Castro", partidos: 1, victorias: 0, empates: 1, derrotas: 0, golesFavor: 2, golesContra: 2 },
+    { equipo: "Bayern Munich", tecnico: "Carlos Ortega", partidos: 1, victorias: 1, empates: 0, derrotas: 0, golesFavor: 1, golesContra: 0 },
+    { equipo: "Real Madrid", tecnico: "Sebastian Flaco", partidos: 2, victorias: 0, empates: 0, derrotas: 1, golesFavor: 0, golesContra: 2 },
+    { equipo: "Liverpool", tecnico: "Camilo Paez", partidos: 1, victorias: 0, empates: 1, derrotas: 0, golesFavor: 0, golesContra: 0 },
+    { equipo: "Man. City", tecnico: "Tovar", partidos: 1, victorias: 0, empates: 1, derrotas: 0, golesFavor: 0, golesContra: 0 },
+    { equipo: "PSG", tecnico: "Daniel Fandiño", partidos: 1, victorias: 0, empates: 0, derrotas: 0, golesFavor: 1, golesContra: 0 },
 ];
 
 // Calcular puntos y diferencia de gol
