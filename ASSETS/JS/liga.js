@@ -1,6 +1,6 @@
 // Verificar si hay datos almacenados en localStorage
 const equipos = JSON.parse(localStorage.getItem('equipos')) || [
-    { equipo: "Arsenal", tecnico: "Adrian Lara", partidos: 3, victorias: 2, empates: 1, derrotas: 0, golesFavor: 17, golesContra: 3 },
+    { equipo: "Arsenal", tecnico: "Adrian Lara", partidos: 3, victorias: 4, empates: 1, derrotas: 0, golesFavor: 17, golesContra: 3 },
     { equipo: "Atl. Madrid", tecnico: "Jorge Castro", partidos: 4, victorias: 1, empates: 1, derrotas: 2, golesFavor: 6, golesContra: 7 },
     { equipo: "Bayern Munich", tecnico: "Carlos Ortega", partidos: 5, victorias: 4, empates: 0, derrotas: 1, golesFavor: 13, golesContra: 7 },
     { equipo: "Real Madrid", tecnico: "Sebastian Flaco", partidos: 3, victorias: 0, empates: 0, derrotas: 3, golesFavor: 1, golesContra: 6 },
