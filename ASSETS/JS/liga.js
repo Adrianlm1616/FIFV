@@ -333,6 +333,17 @@ window.onload = cargarCalendario;
 
 //tabla de posiciones
 
+let tecnicos = {
+    'Arsenal': 'Adrian Lara',
+    'Liverpool': 'Camilo Paez',
+    'Bayern Munich': 'Carlos Ortega',
+    'Atlético Madrid': 'Juan Muñoz',
+    'Chelsea': 'Juanfe Torres',
+    'Man. City': 'Jorge Castro',
+    'PSG': 'Daniel Fandiño',
+    'Barcelona': 'Por definir'
+};
+
 // Definir la estructura de la tabla de posiciones
 let equipos = {};
 
@@ -402,14 +413,15 @@ function actualizarTablaPosiciones() {
         const row = tablaPosiciones.insertRow();
         row.insertCell(0).textContent = index + 1; // Posición
         row.insertCell(1).textContent = equipo[0]; // Nombre del equipo
-        row.insertCell(2).textContent = equipo[1].PJ; // Partidos Jugados
-        row.insertCell(3).textContent = equipo[1].PG; // Victorias
-        row.insertCell(4).textContent = equipo[1].PE; // Empates
-        row.insertCell(5).textContent = equipo[1].PP; // Derrotas
-        row.insertCell(6).textContent = equipo[1].GF; // Goles a Favor
-        row.insertCell(7).textContent = equipo[1].GC; // Goles en Contra
-        row.insertCell(8).textContent = equipo[1].GD; // Diferencia de Gol
-        row.insertCell(9).textContent = equipo[1].PTS; // Puntos
+        row.insertCell(2).textContent = tecnicos[equipo[0]]; // Técnico
+        row.insertCell(3).textContent = equipo[1].PJ; // Partidos Jugados
+        row.insertCell(4).textContent = equipo[1].PG; // Victorias
+        row.insertCell(5).textContent = equipo[1].PE; // Empates
+        row.insertCell(6).textContent = equipo[1].PP; // Derrotas
+        row.insertCell(7).textContent = equipo[1].GF; // Goles a Favor
+        row.insertCell(8).textContent = equipo[1].GC; // Goles en Contra
+        row.insertCell(9).textContent = equipo[1].GD; // Diferencia de Gol
+        row.insertCell(10).textContent = equipo[1].PTS; // Puntos
     });
 }
 
