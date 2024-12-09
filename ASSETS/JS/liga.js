@@ -1,7 +1,7 @@
 // liga.js
 
-// Importa la configuración de Firebase
-import './firebaseConfig';  // Asegúrate de que la ruta sea correcta
+// Importa la configuración de Firebase (y db)
+import { db } from './firebaseConfig.js';  // Asegúrate de que la ruta sea correcta
 
 // Función para mostrar la tabla de posiciones
 function mostrarTablaPosiciones() {
@@ -67,4 +67,3 @@ function mostrarTablaPosiciones() {
 window.onload = function() {
     mostrarTablaPosiciones();
 };
-

@@ -19,6 +19,8 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);  // Obtener la referencia a Firestore
 const analytics = getAnalytics(app);  // Inicializar Analytics (si lo usas)
 
+export { db };
+
 // Datos de los equipos
 const equiposData = [
   {
