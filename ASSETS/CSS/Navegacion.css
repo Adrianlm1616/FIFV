@@ -60,6 +60,7 @@ header {
     width: 30px;
     height: 30px;
 }
+
 /* Logo */
 .logo img {
     width: 100px; /* Tamaño por defecto del logo */
@@ -86,8 +87,17 @@ header {
     }
 
     .menu-icon img {
-        width: 30px;
+        width: 35px; /* Ajustar tamaño del ícono del menú */
+        height: 35px;
+    }
+
+    /* Ajustar tamaño del logo en pantallas pequeñas */
+    .logo img {
+        width: 80px; /* Tamaño más pequeño para pantallas pequeñas */
+    }
+
+    .user-icon img {
+        width: 30px; /* Ajustar tamaño del ícono de usuario */
         height: 30px;
     }
 }
-
