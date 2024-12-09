@@ -1,11 +1,11 @@
-// JavaScript para alternar la clase "active" de la barra de navegación
 document.addEventListener("DOMContentLoaded", function() {
     const navbar = document.querySelector('.navbar');
     const menuIcon = document.querySelector('.menu-icon');
+    const navLinks = document.querySelector('.nav-links');
 
-    // Activar el menú de navegación cuando se hace clic en el ícono hamburguesa
+    // Activar/desactivar el menú de navegación cuando se hace clic en el ícono hamburguesa
     menuIcon.addEventListener('click', function() {
-        navbar.classList.toggle('active');
+        navLinks.classList.toggle('active');
     });
 });
 
