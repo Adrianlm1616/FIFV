@@ -322,10 +322,10 @@ function cargarCalendario() {
     }
 
     // Función para agregar partidos de cada fecha a la tabla
-    function agregarPartidos(fecha, numeroFecha) {
-        fecha.forEach((partido, index) => {
+    partidos.forEach((fecha, numeroFecha) => {
+        fecha.juegos.forEach((partido) => {
             // Crear una fila para cada partido
-            const row = calendario.insertRow();
+            const row = tbody.insertRow();
 
             // Crear celdas para cada columna de la fila
             const celdaFecha = row.insertCell(0);
@@ -345,17 +345,8 @@ function cargarCalendario() {
                 celdaEstado.textContent = "Pendiente"; // Si estado_partido es 0, mostrar "Pendiente"
             }
         });
-    }
-    agregarPartidos(fecha1, 1);
-    agregarPartidos(fecha2, 2);
-    agregarPartidos(fecha3, 3);
-    agregarPartidos(fecha4, 4);
-    agregarPartidos(fecha5, 5);
-    agregarPartidos(fecha6, 6);
-    agregarPartidos(fecha7, 7);
-    agregarPartidos(fecha8, 8);
+        });
 }
-
 
 //tabla de posiciones
 
@@ -385,7 +376,7 @@ let equipos = {
 // Función para procesar los resultados y actualizar las posiciones
 function actualizarTablaPosiciones() {
     // Procesar los resultados de los partidos
-    partidos.forEach(partido => {
+    partidos.forEach(fecha => {
         fecha.juegos.forEach(partido => {
         // Solo procesar partidos finalizados
         if (partido.estado_partido === 1) {
