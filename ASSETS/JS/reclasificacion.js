@@ -1,4 +1,4 @@
-import { partidos, equipos } from '/FIFV/ASSETS/JS/reclasificacion.js';
+import { partidos, equipos } from '/FIFV/ASSETS/JS/liga.js';
 
 const tecnicos = {
   'Arsenal': 'Adrian Lara',
