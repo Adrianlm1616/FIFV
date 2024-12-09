@@ -1,0 +1,125 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Estilos para el cuadro de torneos */
+.tournament-bracket {
+    width: 80%;
+    margin: 0 auto;
+}
+
+/* Estilos para cada ronda */
+.round {
+    margin: 20px 0;
+}
+
+.round h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Estilos para los partidos */
+.matchup {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 10px 0;
+}
+
+/* Estilos para los equipos */
+.team {
+    background-color: #FF5722;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 18px;
+}
+
+/* Línea de conexión entre los equipos */
+.matchup:before {
+    content: "";
+    position: absolute;
+    top: 20px;
+    width: 100%;
+    height: 2px;
+    background-color: #FF5722;
+}
+
+.round .matchup:after {
+    content: "";
+    position: absolute;
+    top: 20px;
+    width: 2px;
+    height: 100%;
+    background-color: #FF5722;
+}
+
+h2 {
+    text-align: center;
+    color: #444;
+    margin-bottom: 20px;
+}
+
+/* Estilos para la tabla */
+#calendario {
+    width: 100%;
+    border-collapse: collapse; /* Para que las celdas no tengan espacio entre ellas */
+    margin: 0 auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+#calendario thead {
+    background-color: #007BFF;
+    color: white;
+}
+
+#calendario th, #calendario td {
+    padding: 12px;
+    text-align: left;
+    font-size: 16px;
+    border-bottom: 1px solid #ddd;
+}
+
+#calendario th {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Estilos para las filas de los partidos */
+#calendario tbody tr:nth-child(even) {
+    background-color: #f9f9f9; /* Color de fondo alternado para filas */
+}
+
+#calendario tbody tr:hover {
+    background-color: #f1f1f1; /* Color de fondo al pasar el cursor */
+}
+
+/* Estilo para los resultados */
+#calendario .terminado {
+    color: #28a745; /* Verde para resultados terminados */
+    font-weight: bold;
+}
+
+#calendario .pendiente {
+    color: #ffc107; /* Amarillo para los partidos pendientes */
+    font-style: italic;
+}
+
+/* Estilo para los bordes */
+#calendario td, #calendario th {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+/* Estilo para el hover de la tabla */
+#calendario td:hover, #calendario th:hover {
+    background-color: #e2e6ea;
+    cursor: pointer;
+}
+
