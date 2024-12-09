@@ -6,17 +6,17 @@ let partidos = [
         juegos: [
             {
                 equipo_local: 'Arsenal',
-                goles_equipo_local: 3,
+                goles_equipo_local: 0,
                 equipo_visitante: 'Liverpool',
-                goles_equipo_visitante: 2,
-                estado_partido: 1 // 0 = Pendiente
+                goles_equipo_visitante: 0,
+                estado_partido: 0 // 0 = Pendiente
             },
             {
                 equipo_local: 'Bayern Munich',
-                goles_equipo_local: 4,
+                goles_equipo_local: 0,
                 equipo_visitante: 'Man. City',
-                goles_equipo_visitante: 5,
-                estado_partido: 1
+                goles_equipo_visitante: 0,
+                estado_partido: 0
             },
             {
                 equipo_local: 'Barcelona',
@@ -39,10 +39,10 @@ let partidos = [
         juegos: [
             {
                 equipo_local: C1,
-                goles_equipo_local: 2,
+                goles_equipo_local: 0,
                 equipo_visitante: C2,
-                goles_equipo_visitante: 1,
-                estado_partido: 1
+                goles_equipo_visitante: 0,
+                estado_partido: 0
             },
             {
                 equipo_local: C3,
