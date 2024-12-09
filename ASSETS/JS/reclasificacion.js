@@ -1,4 +1,4 @@
-import { partidos, equipos } from './liga';
+import { partidos, equipos } from '/FIFV/ASSETS/JS/reclasificacion.js';
 
 function procesarResultados() {
     partidos.forEach(fecha => {
