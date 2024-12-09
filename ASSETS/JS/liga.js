@@ -6,18 +6,18 @@ juegos: [
     // Partido 1: Arsenal vs Barcelona
     {
         equipo_local: 'Arsenal',
-        goles_equipo_local: 0,
+        goles_equipo_local: 3,
         equipo_visitante: 'Barcelona',
-        goles_equipo_visitante: 0,
-        estado_partido: 0 // 0 = Pendiente
+        goles_equipo_visitante: 1,
+        estado_partido: 1 // 0 = Pendiente
     },
     // Partido 2: Liverpool vs Chelsea
     {
         equipo_local: 'Liverpool',
-        goles_equipo_local: 0,
+        goles_equipo_local: 4,
         equipo_visitante: 'Chelsea',
-        goles_equipo_visitante: 0,
-        estado_partido: 0
+        goles_equipo_visitante: 2,
+        estado_partido: 1
     },
     // Partido 3: Bayern Munich vs PSG
     {
@@ -52,18 +52,18 @@ juegos: [
     // Partido 2: Arsenal vs PSG
     {
         equipo_local: 'Arsenal',
-        goles_equipo_local: 0,
+        goles_equipo_local: 2,
         equipo_visitante: 'PSG',
-        goles_equipo_visitante: 0,
-        estado_partido: 0
+        goles_equipo_visitante: 2,
+        estado_partido: 1
     },
     // Partido 3: Liverpool vs Barcelona
     {
         equipo_local: 'Liverpool',
-        goles_equipo_local: 0,
+        goles_equipo_local: 1,
         equipo_visitante: 'Barcelona',
-        goles_equipo_visitante: 0,
-        estado_partido: 0
+        goles_equipo_visitante: 5,
+        estado_partido: 1
     },
     // Partido 4: Bayern Munich vs Atlético Madrid
     {
