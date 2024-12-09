@@ -162,3 +162,5 @@ function cargarCalendario() {
         });
     });
 }
+
+window.onload = cargarCalendario();
