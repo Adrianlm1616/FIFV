@@ -163,4 +163,33 @@ function cargarCalendario() {
     });
 }
 
-window.onload = cargarCalendario();
+// Datos de los equipos para los enfrentamientos
+const equipos = [
+    { nombre: "Liverpool", id: "team1" },
+    { nombre: "Arsenal", id: "team2" },
+    { nombre: "Bayern Munich", id: "team3" },
+    { nombre: "Manchester City", id: "team4" },
+    { nombre: "Chelsea", id: "team5" },
+    { nombre: "Paris Saint Germain", id: "team6" },
+    { nombre: "Atlético de Madrid", id: "team7" },
+    { nombre: "Barcelona", id: "team8" },
+];
+
+// Función para llenar los equipos en los cuadros de enfrentamiento
+function llenarCuadro() {
+    // Cuartos de final
+    document.getElementById('team1').textContent = equipos[0].nombre;
+    document.getElementById('team2').textContent = equipos[1].nombre;
+    document.getElementById('team3').textContent = equipos[2].nombre;
+    document.getElementById('team4').textContent = equipos[3].nombre;
+    document.getElementById('team5').textContent = equipos[4].nombre;
+    document.getElementById('team6').textContent = equipos[5].nombre;
+    document.getElementById('team7').textContent = equipos[6].nombre;
+    document.getElementById('team8').textContent = equipos[7].nombre;
+}
+
+// Llamar a la función cuando la página cargue
+window.onload = function() {
+    cargarCalendario();
+    llenarCuadro();
+};
