@@ -350,7 +350,7 @@ function cargarCalendario() {
 
 //tabla de posiciones
 
-export let tecnicos = {
+ let tecnicos = {
     'Arsenal': 'Adrian Lara',
     'Liverpool': 'Camilo Paez',
     'Bayern Munich': 'Carlos Ortega',
