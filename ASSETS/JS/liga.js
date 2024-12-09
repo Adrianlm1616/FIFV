@@ -345,21 +345,23 @@ let tecnicos = {
 };
 
 // Definir la estructura de la tabla de posiciones
-let equipos = {};
+let equipos = {
+    'Arsenal': { PJ: 0, PG: 0, PE: 0, PP: 0, GF: 0, GC: 0, GD: 0, PTS: 0 },
+    'Liverpool': { PJ: 0, PG: 0, PE: 0, PP: 0, GF: 0, GC: 0, GD: 0, PTS: 0 },
+    'Bayern Munich': { PJ: 0, PG: 0, PE: 0, PP: 0, GF: 0, GC: 0, GD: 0, PTS: 0 },
+    'Atlético Madrid': { PJ: 0, PG: 0, PE: 0, PP: 0, GF: 0, GC: 0, GD: 0, PTS: 0 },
+    'Chelsea': { PJ: 0, PG: 0, PE: 0, PP: 0, GF: 0, GC: 0, GD: 0, PTS: 0 },
+    'Man. City': { PJ: 0, PG: 0, PE: 0, PP: 0, GF: 0, GC: 0, GD: 0, PTS: 0 },
+    'PSG': { PJ: 0, PG: 0, PE: 0, PP: 0, GF: 0, GC: 0, GD: 0, PTS: 0 },
+    'Barcelona': { PJ: 0, PG: 0, PE: 0, PP: 0, GF: 0, GC: 0, GD: 0, PTS: 0 }
+};
 
 // Función para procesar los resultados y actualizar las posiciones
 function actualizarTablaPosiciones() {
+    // Procesar los resultados de los partidos
     partidos.forEach(partido => {
         // Solo procesar partidos finalizados
         if (partido.estado_partido === 1) {
-            // Inicializar equipos si no existen
-            if (!equipos[partido.equipo_local]) {
-                equipos[partido.equipo_local] = { PJ: 0, PG: 0, PE: 0, PP: 0, GF: 0, GC: 0, GD: 0, PTS: 0 };
-            }
-            if (!equipos[partido.equipo_visitante]) {
-                equipos[partido.equipo_visitante] = { PJ: 0, PG: 0, PE: 0, PP: 0, GF: 0, GC: 0, GD: 0, PTS: 0 };
-            }
-
             // Actualizar partidos jugados
             equipos[partido.equipo_local].PJ += 1;
             equipos[partido.equipo_visitante].PJ += 1;
