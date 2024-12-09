@@ -15,6 +15,9 @@ body {
 /* Estilos para cada ronda */
 .round {
     margin: 20px;
+    display: inline-block;
+    width: 150px;
+    vertical-align: top;
 }
 
 .round h2 {
@@ -29,6 +32,7 @@ body {
     justify-content: center;
     gap: 20px;
     margin: 10px 0;
+    position: relative;
 }
 
 /* Estilos para los equipos */
@@ -40,24 +44,67 @@ body {
     font-size: 18px;
 }
 
-/* Estilos para el SVG (líneas de conexión) */
-.connections {
+/* Líneas de conexión entre las rondas */
+.round:after {
+    content: '';
     position: absolute;
-    top: 50px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: -1;
+    top: 50%;
+    left: 100%;
+    width: 20px;
+    height: 2px;
+    background-color: #FF5722;
 }
 
-svg line {
-    transition: all 0.3s ease;
+.quarter-finals:after {
+    height: 100%;
+    transform: translateY(-50%);
+    margin-left: 10px;
 }
 
-/* Asegura que el SVG se adapte al tamaño de la página */
-@media screen and (max-width: 768px) {
-    .connections {
+.semi-finals:after {
+    height: 100%;
+    transform: translateY(-50%);
+    margin-left: 10px;
+}
+
+.final:after {
+    height: 100%;
+    transform: translateY(-50%);
+    margin-left: 10px;
+}
+
+/* Línea de conexión vertical para las semifinales */
+.quarter-finals .matchup:first-child:after, 
+.quarter-finals .matchup:last-child:after {
+    border-left: 3px solid #FF5722;
+    height: 20px;
+}
+
+.semi-finals .matchup:first-child:after, 
+.semi-finals .matchup:last-child:after {
+    border-left: 3px solid #FF5722;
+    height: 20px;
+}
+
+/* Estilo para los márgenes y alineación */
+.matchup {
+    display: block;
+    position: relative;
+}
+
+.matchup:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    height: 20px;
+    width: 2px;
+    background: #FF5722;
+    margin-left: -1px;
+}
+
+@media (max-width: 768px) {
+    .tournament-bracket {
         width: 100%;
-        height: auto;
-        position: relative;
     }
 }
