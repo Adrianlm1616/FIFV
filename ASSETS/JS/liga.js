@@ -310,7 +310,6 @@ function cargarCalendario() {
             celdaResultado.textContent = `${partido.goles_equipo_local} - ${partido.goles_equipo_visitante}`;
         });
     }
-}
     agregarPartidos(fecha1, 1);
     agregarPartidos(fecha2, 2);
     agregarPartidos(fecha3, 3);
@@ -319,6 +318,6 @@ function cargarCalendario() {
     agregarPartidos(fecha6, 6);
     agregarPartidos(fecha7, 7);
     agregarPartidos(fecha8, 8);
-
+}
     // Llamar a la función para cargar el calendario cuando la página cargue
 window.onload = cargarCalendario;
