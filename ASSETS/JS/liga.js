@@ -1,7 +1,7 @@
 // liga.js
 
 // Importa la configuración de Firebase (y db)
-import { db } from './firebaseConfig.js';  // Asegúrate de que la ruta sea correcta
+import { db } from '/FIFV/ASSETS/JS/firebaseConfig.js';  // Asegúrate de que la ruta sea correcta
 
 // Función para mostrar la tabla de posiciones
 function mostrarTablaPosiciones() {
@@ -14,15 +14,15 @@ function mostrarTablaPosiciones() {
             const equipo = doc.data();
             equipos.push({
                 id: doc.id,
-                nombre: doc.id,
+                nombre: equipo.equipo,  // Asumimos que el nombre del equipo está en el campo 'equipo'
                 partidos: equipo.PJ,
-                victorias: equipo.V,
-                empates: equipo.E,
-                derrotas: equipo.D,
-                golesFavor: equipo.GF,
-                golesContra: equipo.GC,
-                puntos: (equipo.V * 3) + (equipo.E), // Puntos = victorias * 3 + empates
-                diferenciaGol: equipo.GF - equipo.GC
+                victorias: equipo.victorias,  // Accedemos correctamente al campo de victorias
+                empates: equipo.empates,  // Accedemos correctamente al campo de empates
+                derrotas: equipo.derrotas,  // Accedemos correctamente al campo de derrotas
+                golesFavor: equipo["goles a favor"],  // Accedemos al campo 'goles a favor'
+                golesContra: equipo["goles en contra"],  // Accedemos al campo 'goles en contra'
+                puntos: (equipo.victorias * 3) + equipo.empates,  // Puntos = victorias * 3 + empates
+                diferenciaGol: equipo["goles a favor"] - equipo["goles en contra"]  // Diferencia de goles
             });
         });
 
@@ -64,6 +64,6 @@ function mostrarTablaPosiciones() {
 }
 
 // Llamar a la función para mostrar la tabla de posiciones al cargar la página
-window.onload = function() {
+document.addEventListener("DOMContentLoaded", function() {
     mostrarTablaPosiciones();
-};
+});
