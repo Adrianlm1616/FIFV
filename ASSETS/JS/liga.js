@@ -1,5 +1,8 @@
+let partidos = [
+    {
 // Fecha 1 - 4 partidos
-let fecha1 = [
+fecha: 1,
+juegos: [
     // Partido 1: Arsenal vs Barcelona
     {
         equipo_local: 'Arsenal',
@@ -32,10 +35,12 @@ let fecha1 = [
         goles_equipo_visitante: 0,
         estado_partido: 0
     }
-];
-
+]
+    },
+    {
 // Fecha 2 - 4 partidos
-let fecha2 = [
+fecha: 2,
+juegos: [
     // Partido 1: Man. City vs Chelsea
     {
         equipo_local: 'Man. City',
@@ -68,10 +73,12 @@ let fecha2 = [
         goles_equipo_visitante: 0,
         estado_partido: 0
     }
-];
-
+]
+    },
+    {
 // Fecha 3 - 4 partidos
-let fecha3 = [
+fecha: 3,
+juegos: [
     // Partido 1: PSG vs Chelsea
     {
         equipo_local: 'PSG',
@@ -104,10 +111,12 @@ let fecha3 = [
         goles_equipo_visitante: 0,
         estado_partido: 0
     }
-];
-
+]
+    },
+    {
 // Fecha 4 - 4 partidos
-let fecha4 = [
+fecha: 4,
+juegos: [
     // Partido 1: Liverpool vs Man. City
     {
         equipo_local: 'Liverpool',
@@ -140,10 +149,12 @@ let fecha4 = [
         goles_equipo_visitante: 0,
         estado_partido: 0
     }
-];
-
+]
+    },
+    {
 // Fecha 5 - 4 partidos
-let fecha5 = [
+fecha: 5,
+juegos: [
     // Partido 1: Arsenal vs Atlético Madrid
     {
         equipo_local: 'Arsenal',
@@ -176,10 +187,12 @@ let fecha5 = [
         goles_equipo_visitante: 0,
         estado_partido: 0
     }
-];
-
+]
+    },
+    {
 // Fecha 6 - 4 partidos
-let fecha6 = [
+fecha: 6,
+juegos: [
     // Partido 1: Man. City vs PSG
     {
         equipo_local: 'Man. City',
@@ -212,10 +225,12 @@ let fecha6 = [
         goles_equipo_visitante: 0,
         estado_partido: 0
     }
-];
-
+]
+    },
+    {
 // Fecha 7 - 4 partidos
-let fecha7 = [
+fecha: 7,
+juegos: [
     // Partido 1: Bayern Munich vs Man. City
     {
         equipo_local: 'Bayern Munich',
@@ -248,10 +263,12 @@ let fecha7 = [
         goles_equipo_visitante: 0,
         estado_partido: 0
     }
-];
-
+]
+    },
+    {
 // Fecha 8 - 4 partidos
-let fecha8 = [
+fecha: 8,
+juegos: [
     // Partido 1: Liverpool vs Bayern Munich
     {
         equipo_local: 'Liverpool',
@@ -283,6 +300,8 @@ let fecha8 = [
         equipo_visitante: 'Chelsea',
         goles_equipo_visitante: 0,
         estado_partido: 0
+    }
+]
     }
 ];
 
@@ -327,8 +346,6 @@ function cargarCalendario() {
     agregarPartidos(fecha7, 7);
     agregarPartidos(fecha8, 8);
 }
-    // Llamar a la función para cargar el calendario cuando la página cargue
-window.onload = cargarCalendario;
 
 
 //tabla de posiciones
@@ -427,5 +444,8 @@ function actualizarTablaPosiciones() {
     });
 }
 
-// Llamar a la función para actualizar la tabla cuando la página cargue
-window.onload = actualizarTablaPosiciones;
+// Llamar a la función para cargar calendario y actualizar posiciones cuando la página cargue
+window.onload = function () {
+    cargarCalendario();
+    actualizarTablaPosiciones();
+};
