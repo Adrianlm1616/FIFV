@@ -8,7 +8,7 @@ const tecnicos = {
     'Chelsea': 'Juanfe Torres',
     'Man. City': 'Jorge Castro',
     'PSG': 'Daniel Fandiño',
-    'Barcelona': 'Por definir'
+    'Barcelona': 'Orlando Sanchez'
 };
 
 function actualizarEstadisticasEquipo(partido) {

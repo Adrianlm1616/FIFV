@@ -358,7 +358,7 @@ function cargarCalendario() {
     'Chelsea': 'Juanfe Torres',
     'Man. City': 'Jorge Castro',
     'PSG': 'Daniel Fandiño',
-    'Barcelona': 'Por definir'
+    'Barcelona': 'Orlando Sanchez'
 };
 
 // Definir la estructura de la tabla de posiciones

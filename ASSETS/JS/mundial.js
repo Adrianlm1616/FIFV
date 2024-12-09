@@ -1,209 +1,231 @@
-// Verificar si hay datos almacenados en localStorage
-const equipos = JSON.parse(localStorage.getItem('equipos')) || [
-    { equipo: "L1", tecnico: "POR DEFINIR", partidos: 0, victorias: 0, empates: 0, derrotas: 0, golesFavor: 0, golesContra: 0 },
-    { equipo: "L2", tecnico: "POR DEFINIR", partidos: 0, victorias: 0, empates: 0, derrotas: 0, golesFavor: 0, golesContra: 0 },
-    { equipo: "C1", tecnico: "POR DEFINIR", partidos: 0, victorias: 0, empates: 0, derrotas: 0, golesFavor: 0, golesContra: 0 },
-    { equipo: "C2", tecnico: "POR DEFINIR", partidos: 0, victorias: 0, empates: 0, derrotas: 0, golesFavor: 0, golesContra: 0 },
+export let partidos = [
+    {
+// Fecha 1 - 4 partidos
+fecha: 1,
+juegos: [
+    // Partido 1: Supcampeon de la PINGUIN CUP VS Campeon de La GOD LEAGUE
+    {
+        equipo_local: '#2 PINGUIN CUP',
+        goles_equipo_local: 0,
+        equipo_visitante: 'Campeon GOD LEAGUE',
+        goles_equipo_visitante: 0,
+        estado_partido: 0 // 0 = Pendiente
+    },
+    // Partido 2: Supcampeon de la GOD LEAGUE vs Campeon de la PINGUIN CUP
+    {
+        equipo_local: '#2 GOD LEAGUE',
+        goles_equipo_local: 0,
+        equipo_visitante: 'Campeon de la PINGUIN CUP',
+        goles_equipo_visitante: 0,
+        estado_partido: 0
+    },
+]
+    },
+    {
+// Fecha 2 - 4 partidos
+fecha: 2,
+juegos: [
+    // Partido 1: Campeon de la PINGUIN CUP vs Supcampeon de la PINGUIN CUP
+    {
+        equipo_local: 'Campeon de la PINGUIN CUP',
+        goles_equipo_local: 0,
+        equipo_visitante: '#2 PINGUIN CUP',
+        goles_equipo_visitante: 0,
+        estado_partido: 0
+    },
+    // Partido 2: Campeon de La GOD LEAGUE vs Supcampeon de la GOD LEAGUE
+    {
+        equipo_local: 'Campeon GOD LEAGUE',
+        goles_equipo_local: 0,
+        equipo_visitante: '#2 GOD LEAGUE',
+        goles_equipo_visitante: 0,
+        estado_partido: 0
+    },
+    
+]
+    },
+    {
+// Fecha 3 - 4 partidos
+fecha: 3,
+juegos: [
+    // Partido 1: Campeon de La GOD LEAGUE CUP vs Campeon de la PINGUIN CUP
+    {
+        equipo_local: 'Campeon GOD LEAGUE',
+        goles_equipo_local: 0,
+        equipo_visitante: 'Campeon de la PINGUIN CUP',
+        goles_equipo_visitante: 0,
+        estado_partido: 0
+    },
+    // Partido 2: Supcampeon de la PINGUIN CUP vs Supcampeon de la GOD LEAGUE
+    {
+        equipo_local: '#2 PINGUIN CUP',
+        goles_equipo_local: 0,
+        equipo_visitante: '#2 GOD LEAGUE',
+        goles_equipo_visitante: 0,
+        estado_partido: 0
+    }
+]
+    },
+    {
+// Fecha 4 - 4 partidos
+fecha: 4,
+juegos: [
+    // Partido 1: Supcampeon de la GOD LEAGUE vs Supcampeon de la PINGUIN CUP
+    {
+        equipo_local: '#2 GOD LEAGUE',
+        goles_equipo_local: 0,
+        equipo_visitante: '#2 PINGUIN CUP',
+        goles_equipo_visitante: 0,
+        estado_partido: 0
+    },
+    // Partido 2: Campeon de la PINGUIN CUP vs Campeon de La GOD LEAGUE
+    {
+        equipo_local: 'Campeon de la PINGUIN CUP',
+        goles_equipo_local: 0,
+        equipo_visitante: 'Campeon GOD LEAGUE',
+        goles_equipo_visitante: 0,
+        estado_partido: 0
+    }
+]
+    },
+    {
+// Fecha 5 - 4 partidos
+fecha: 5,
+juegos: [
+    // Partido 1: Supcampeon de la GOD LEAGUE vs Campeon de La GOD LEAGUE
+    {
+        equipo_local: '#2 GOD LEAGUE',
+        goles_equipo_local: 0,
+        equipo_visitante: 'Campeon GOD LEAGUE',
+        goles_equipo_visitante: 0,
+        estado_partido: 0
+    },
+    // Partido 2: Supcampeon de la PINGUIN CUP vs Campeon de la PINGUIN CUP
+    {
+        equipo_local: '#2 PINGUIN CUP',
+        goles_equipo_local: 0,
+        equipo_visitante: 'Campeon de la PINGUIN CUP',
+        goles_equipo_visitante: 0,
+        estado_partido: 0
+    }
+]
+    },
+    {
+// Fecha 6 - 4 partidos
+fecha: 6,
+juegos: [
+    // Partido 1: Campeon de la PINGUIN CUP vs Supcampeon de la GOD LEAGUE
+    {
+        equipo_local: 'Campeon de la PINGUIN CUP',
+        goles_equipo_local: 0,
+        equipo_visitante: '#2 GOD LEAGUE',
+        goles_equipo_visitante: 0,
+        estado_partido: 0
+    },
+    // Partido 2: Campeon de La GOD LEAGUE vs Supcampeon de la PINGUIN CUP
+    {
+        equipo_local: 'Campeon GOD LEAGUE',
+        goles_equipo_local: 0,
+        equipo_visitante: '#2 PINGUIN CUP',
+        goles_equipo_visitante: 0,
+        estado_partido: 0
+    }
+]
+    }
 ];
 
-// Calcular puntos y diferencia de gol
-function calcularPuntosYDiferenciaDeGol() {
-    equipos.forEach(equipo => {
-        equipo.diferenciaGol = equipo.golesFavor - equipo.golesContra;
-        equipo.puntos = equipo.victorias * 3 + equipo.empates; // 3 puntos por victoria y 1 por empate
-    });
-}
+//tabla de posiciones
 
-// Ordenar equipos según puntos, diferencia de gol, y nombre
-function ordenarEquipos() {
-    equipos.sort((a, b) => {
-        if (b.puntos !== a.puntos) {
-            return b.puntos - a.puntos;
-        } else if (b.diferenciaGol !== a.diferenciaGol) {
-            return b.diferenciaGol - a.diferenciaGol;
-        } else {
-            return a.equipo.localeCompare(b.equipo); // Orden alfabético si hay empate en puntos y diferencia de gol
+let tecnicos = {
+    'Campeon GOD LEAGUE': 'Por Definir',
+    'Campeon de la PINGUIN CUP': 'Por Definir',
+    '#2 PINGUIN CUP': 'Por Definir',
+    '#2 GOD LEAGUE': 'Por Definir'
+};
+
+// Definir la estructura de la tabla de posiciones
+export let equipos = {
+    'Campeon GOD LEAGUE': { PJ: 0, PG: 0, PE: 0, PP: 0, GF: 0, GC: 0, GD: 0, PTS: 0 },
+    'Campeon de la PINGUIN CUP': { PJ: 0, PG: 0, PE: 0, PP: 0, GF: 0, GC: 0, GD: 0, PTS: 0 },
+    '#2 PINGUIN CUP': { PJ: 0, PG: 0, PE: 0, PP: 0, GF: 0, GC: 0, GD: 0, PTS: 0 },
+    '#2 GOD LEAGUE': { PJ: 0, PG: 0, PE: 0, PP: 0, GF: 0, GC: 0, GD: 0, PTS: 0 }
+};
+
+// Función para procesar los resultados y actualizar las posiciones
+function actualizarTablaPosiciones() {
+    // Procesar los resultados de los partidos
+    partidos.forEach(fecha => {
+        fecha.juegos.forEach(partido => {
+        // Solo procesar partidos finalizados
+        if (partido.estado_partido === 1) {
+            // Actualizar partidos jugados
+            equipos[partido.equipo_local].PJ += 1;
+            equipos[partido.equipo_visitante].PJ += 1;
+
+            // Actualizar goles a favor y en contra
+            equipos[partido.equipo_local].GF += partido.goles_equipo_local;
+            equipos[partido.equipo_local].GC += partido.goles_equipo_visitante;
+            equipos[partido.equipo_visitante].GF += partido.goles_equipo_visitante;
+            equipos[partido.equipo_visitante].GC += partido.goles_equipo_local;
+
+            // Actualizar diferencia de goles
+            equipos[partido.equipo_local].GD = equipos[partido.equipo_local].GF - equipos[partido.equipo_local].GC;
+            equipos[partido.equipo_visitante].GD = equipos[partido.equipo_visitante].GF - equipos[partido.equipo_visitante].GC;
+
+            // Determinar victoria, empate o derrota
+            if (partido.goles_equipo_local > partido.goles_equipo_visitante) {
+                equipos[partido.equipo_local].PG += 1; // Victoria para el local
+                equipos[partido.equipo_visitante].PP += 1; // Derrota para el visitante
+                equipos[partido.equipo_local].PTS += 3; // 3 puntos para el local
+            } else if (partido.goles_equipo_local < partido.goles_equipo_visitante) {
+                equipos[partido.equipo_visitante].PG += 1; // Victoria para el visitante
+                equipos[partido.equipo_local].PP += 1; // Derrota para el local
+                equipos[partido.equipo_visitante].PTS += 3; // 3 puntos para el visitante
+            } else {
+                equipos[partido.equipo_local].PE += 1; // Empate
+                equipos[partido.equipo_visitante].PE += 1; // Empate
+                equipos[partido.equipo_local].PTS += 1; // 1 punto para el local
+                equipos[partido.equipo_visitante].PTS += 1; // 1 punto para el visitante
+            }
         }
     });
-}
-
-// Mostrar la tabla en el HTML
-function mostrarTabla() {
-    const tablaPosiciones = document.getElementById("tabla-posiciones");
-    tablaPosiciones.innerHTML = ""; // Limpiar tabla
-
-    calcularPuntosYDiferenciaDeGol();
-    ordenarEquipos();
-
-    equipos.forEach((equipo, index) => {
-        const row = document.createElement("tr");
-        row.innerHTML = `
-            <td>${index + 1}</td>
-            <td>${equipo.equipo}</td>
-            <td>${equipo.tecnico}</td>
-            <td>${equipo.partidos}</td>
-            <td>${equipo.victorias}</td>
-            <td>${equipo.empates}</td>
-            <td>${equipo.derrotas}</td>
-            <td>${equipo.golesFavor}</td>
-            <td>${equipo.golesContra}</td>
-            <td>${equipo.diferenciaGol}</td>
-            <td>${equipo.puntos}</td>
-        `;
-        tablaPosiciones.appendChild(row);
-    });
-}
-
-document.addEventListener("DOMContentLoaded", mostrarTabla);
-
-// Función para reiniciar la tabla a cero
-function reiniciarTabla() {
-    // Recorre todos los equipos y pone sus estadísticas a cero
-    equipos.forEach(equipo => {
-        equipo.victorias = 0;
-        equipo.empates = 0;
-        equipo.derrotas = 0;
-        equipo.golesFavor = 0;
-        equipo.golesContra = 0;
-        equipo.diferenciaGol = 0;
-        equipo.puntos = 0;
-        equipo.partidos = 0; // Reinicia los partidos jugados a 0
     });
 
-    // Guardamos los equipos actualizados con las estadísticas en cero en localStorage
-    localStorage.setItem('equipos', JSON.stringify(equipos));
-
-    // Muestra un mensaje de éxito
-    alert("La tabla ha sido reiniciada.");
-    
-    // Actualiza la tabla en la página
-    mostrarTabla();
-}
-
-// Añadir un evento al botón "Reiniciar tabla"
-document.getElementById('reiniciar-tabla').addEventListener('click', reiniciarTabla);
-
-// Función para actualizar estadísticas cuando se envía el formulario
-document.getElementById('form-config').addEventListener('submit', function(event) {
-    event.preventDefault(); // Evitar la recarga de la página
-
-    const equipoSeleccionado = document.getElementById('equipo').value;
-    const partidos = parseInt(document.getElementById('partidos').value);  // Número de partidos jugados
-    const victorias = parseInt(document.getElementById('victorias').value);
-    const empates = parseInt(document.getElementById('empates').value);
-    const derrotas = parseInt(document.getElementById('derrotas').value);
-    const golesFavor = parseInt(document.getElementById('golesFavor').value);
-    const golesContra = parseInt(document.getElementById('golesContra').value);
-
-    // Buscar el equipo en la lista y actualizar sus estadísticas
-    const equipo = equipos.find(e => e.equipo === equipoSeleccionado);
-    if (equipo) {
-        // Sumar las nuevas estadísticas a las existentes
-        equipo.partidos += partidos; // Sumar partidos jugados
-        equipo.victorias += victorias;
-        equipo.empates += empates;
-        equipo.derrotas += derrotas;
-        equipo.golesFavor += golesFavor;
-        equipo.golesContra += golesContra;
-    }
-
-    // Guardar la nueva información en localStorage
-    localStorage.setItem('equipos', JSON.stringify(equipos));
-
-    alert("Estadísticas actualizadas con éxito");
-
-    // Actualiza la tabla de posiciones en la página
-    mostrarTabla();
-});
-
-// Inicializar los partidos y fechas desde localStorage, si no existe, se carga el calendario por defecto
-let calendario = JSON.parse(localStorage.getItem("calendario")) || [
-    { fecha: 1, equipo1: "C1", equipo2: "L2", resultado: "", terminado: false },
-    { fecha: 1, equipo1: "L1", equipo2: "C2", resultado: "", terminado: false },
-
-    { fecha: 2, equipo1: "C1", equipo2: "C2", resultado: "", terminado: false },
-    { fecha: 2, equipo1: "L1", equipo2: "L2", resultado: "", terminado: false },
-
-    { fecha: 3, equipo1: "L1", equipo2: "C1", resultado: "", terminado: false },
-    { fecha: 3, equipo1: "L2", equipo2: "C2", resultado: "", terminado: false },
-
-    { fecha: 4, equipo1: "CLAS. 1", equipo2: "CLAS. 2", resultado: "", terminado: false },
-];
-
-// Función para mostrar el calendario con resultados
-function mostrarCalendario() {
-    const tabla = document.getElementById("calendario").getElementsByTagName("tbody")[0];
-
-    calendario.forEach(partido => {
-        const row = document.createElement("tr");
-
-        // Si el partido está terminado, añadir la clase 'terminado' para cambiar el color
-        row.innerHTML = `
-            <td>Fecha ${partido.fecha}</td>
-            <td>${partido.equipo1} vs ${partido.equipo2}</td>
-            <td class="${partido.terminado ? 'terminado' : ''}">
-                ${partido.resultado || "Pendiente"}
-            </td>
-        `;
-        tabla.appendChild(row);
-    });
-}
-
-// Ejecutar la función cuando la página cargue
-document.addEventListener("DOMContentLoaded", mostrarCalendario);
-
-// Función para cargar los partidos en el formulario
-function cargarPartidos() {
-    const selectPartido = document.getElementById("partido");
-
-    calendario.forEach((partido, index) => {
-        const option = document.createElement("option");
-        option.value = index;
-        option.textContent = `${partido.equipo1} vs ${partido.equipo2}`;
-        selectPartido.appendChild(option);
-    });
-}
-
-// Función para manejar el envío del formulario y actualizar el resultado
-document.getElementById("form-modificar").addEventListener("submit", function(event) {
-    event.preventDefault();
-
-    const selectPartido = document.getElementById("partido");
-    const resultado = document.getElementById("resultado").value.trim();
-    const partidoIndex = selectPartido.value;
-
-    if (resultado !== "") {
-        calendario[partidoIndex].resultado = resultado;
-        calendario[partidoIndex].terminado = true;
-
-        alert("Resultado actualizado exitosamente");
-
-        // Actualizar la tabla en el calendario
-        localStorage.setItem("calendario", JSON.stringify(calendario));
-
-        // Opcional: puedes recargar la página o redirigir al calendario
-    }
-});
-
-// Función para reiniciar el calendario
-document.getElementById("reiniciar-calendario").addEventListener("click", function() {
-    if (confirm("¿Estás seguro de que quieres reiniciar todos los resultados?")) {
-        // Reiniciar los partidos en el arreglo calendario
-        calendario.forEach(partido => {
-            partido.resultado = "";
-            partido.terminado = false;
+    // Ordenar equipos por puntos, diferencia de goles, goles a favor, y alfabéticamente
+    let equiposOrdenados = Object.entries(equipos)
+        .sort((a, b) => {
+            // Comparar puntos
+            if (b[1].PTS !== a[1].PTS) return b[1].PTS - a[1].PTS;
+            // Comparar diferencia de goles
+            if (b[1].GD !== a[1].GD) return b[1].GD - a[1].GD;
+            // Comparar goles a favor
+            if (b[1].GF !== a[1].GF) return b[1].GF - a[1].GF;
+            // Si todo es igual, ordenar alfabéticamente
+            return a[0].localeCompare(b[0]);
         });
 
-        // Guardar los datos reiniciados en localStorage
-        localStorage.setItem("calendario", JSON.stringify(calendario));
+    // Mostrar la tabla de posiciones en HTML
+    const tablaPosiciones = document.getElementById('tabla-posiciones').getElementsByTagName('tbody')[0];
+    tablaPosiciones.innerHTML = ''; // Limpiar la tabla antes de agregar nuevas filas
 
-        // Actualizar la visualización en la página (recargando la tabla)
-        mostrarCalendario();
+    equiposOrdenados.forEach((equipo, index) => {
+        const row = tablaPosiciones.insertRow();
+        row.insertCell(0).textContent = index + 1; // Posición
+        row.insertCell(1).textContent = equipo[0]; // Nombre del equipo
+        row.insertCell(2).textContent = tecnicos[equipo[0]]; // Técnico
+        row.insertCell(3).textContent = equipo[1].PJ; // Partidos Jugados
+        row.insertCell(4).textContent = equipo[1].PG; // Victorias
+        row.insertCell(5).textContent = equipo[1].PE; // Empates
+        row.insertCell(6).textContent = equipo[1].PP; // Derrotas
+        row.insertCell(7).textContent = equipo[1].GF; // Goles a Favor
+        row.insertCell(8).textContent = equipo[1].GC; // Goles en Contra
+        row.insertCell(9).textContent = equipo[1].GD; // Diferencia de Gol
+        row.insertCell(10).textContent = equipo[1].PTS; // Puntos
+    });
+}
 
-        alert("Calendario reiniciado");
-    }
-});
-
-// Cargar los partidos al cargar la página
-document.addEventListener("DOMContentLoaded", cargarPartidos);
-
+// Llamar a la función para cargar calendario y actualizar posiciones cuando la página cargue
+window.onload = function () {
+    cargarCalendario();
+    actualizarTablaPosiciones();
+};
