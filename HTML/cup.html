@@ -43,67 +43,74 @@
         <br>
         <br>
         <div class="tournament-bracket">
-            <h1>PENGUIN CUP</h1>
-            <!-- Cuartos de final -->
-            <div class="round">
+            <h1>Cuadro de Torneo</h1>
+    
+            <!-- SVG para las líneas de conexión -->
+            <svg id="tournament-lines" xmlns="http://www.w3.org/2000/svg">
+                <!-- Líneas de conexión de los cuartos de final -->
+                <line x1="140" y1="80" x2="140" y2="120" stroke="#FF5722" stroke-width="2" class="line" id="line1"></line>
+                <line x1="300" y1="80" x2="300" y2="120" stroke="#FF5722" stroke-width="2" class="line" id="line2"></line>
+                <line x1="140" y1="220" x2="140" y2="260" stroke="#FF5722" stroke-width="2" class="line" id="line3"></line>
+                <line x1="300" y1="220" x2="300" y2="260" stroke="#FF5722" stroke-width="2" class="line" id="line4"></line>
+            </svg>
+    
+            <!-- Cuartos de Final -->
+            <div class="round quarter-finals">
                 <h2>Cuartos de Final</h2>
                 <div class="matchup">
-                    <span class="team">Equipo 1</span> vs <span class="team">Equipo 2</span>
+                    <span class="team" id="team1">Equipo 1</span> vs <span class="team" id="team2">Equipo 2</span>
+                    <button onclick="avanzar('team1', 'team2', 'semi1')">Ganador Equipo 1</button>
+                    <button onclick="avanzar('team2', 'team1', 'semi1')">Ganador Equipo 2</button>
                 </div>
                 <div class="matchup">
-                    <span class="team">Equipo 3</span> vs <span class="team">Equipo 4</span>
+                    <span class="team" id="team3">Equipo 3</span> vs <span class="team" id="team4">Equipo 4</span>
+                    <button onclick="avanzar('team3', 'team4', 'semi2')">Ganador Equipo 3</button>
+                    <button onclick="avanzar('team4', 'team3', 'semi2')">Ganador Equipo 4</button>
                 </div>
                 <div class="matchup">
-                    <span class="team">Equipo 5</span> vs <span class="team">Equipo 6</span>
+                    <span class="team" id="team5">Equipo 5</span> vs <span class="team" id="team6">Equipo 6</span>
+                    <button onclick="avanzar('team5', 'team6', 'semi3')">Ganador Equipo 5</button>
+                    <button onclick="avanzar('team6', 'team5', 'semi3')">Ganador Equipo 6</button>
                 </div>
                 <div class="matchup">
-                    <span class="team">Equipo 7</span> vs <span class="team">Equipo 8</span>
+                    <span class="team" id="team7">Equipo 7</span> vs <span class="team" id="team8">Equipo 8</span>
+                    <button onclick="avanzar('team7', 'team8', 'semi4')">Ganador Equipo 7</button>
+                    <button onclick="avanzar('team8', 'team7', 'semi4')">Ganador Equipo 8</button>
                 </div>
             </div>
     
             <!-- Semifinales -->
-            <div class="round">
+            <div class="round semi-finals">
                 <h2>Semifinales</h2>
                 <div class="matchup">
-                    <span class="team">Ganador 1</span> vs <span class="team">Ganador 2</span>
+                    <span class="team" id="semi1">Ganador Cuarto 1</span> vs <span class="team" id="semi2">Ganador Cuarto 2</span>
+                    <button onclick="avanzar('semi1', 'semi2', 'final1')">Ganador Semifinal 1</button>
+                    <button onclick="avanzar('semi2', 'semi1', 'final1')">Ganador Semifinal 2</button>
                 </div>
                 <div class="matchup">
-                    <span class="team">Ganador 3</span> vs <span class="team">Ganador 4</span>
+                    <span class="team" id="semi3">Ganador Cuarto 3</span> vs <span class="team" id="semi4">Ganador Cuarto 4</span>
+                    <button onclick="avanzar('semi3', 'semi4', 'final2')">Ganador Semifinal 3</button>
+                    <button onclick="avanzar('semi4', 'semi3', 'final2')">Ganador Semifinal 4</button>
                 </div>
             </div>
     
             <!-- Final -->
-            <div class="round">
+            <div class="round final">
                 <h2>Final</h2>
                 <div class="matchup">
-                    <span class="team">Ganador Semifinal 1</span> vs <span class="team">Ganador Semifinal 2</span>
+                    <span class="team" id="final1">Ganador Semifinal 1</span> vs <span class="team" id="final2">Ganador Semifinal 2</span>
+                    <button onclick="avanzar('final1', 'final2', 'champion')">Ganador Final</button>
                 </div>
             </div>
     
             <!-- Gran Campeón -->
-            <div class="round">
+            <div class="round champion">
                 <h2>Gran Campeón</h2>
                 <div class="matchup">
-                    <span class="team">Ganador Final</span>
+                    <span class="team" id="champion">Ganador Final</span>
                 </div>
             </div>
         </div>
-
-         <!-- SVG para las líneas de conexión -->
-    <svg class="connections" viewBox="0 0 500 400" xmlns="http://www.w3.org/2000/svg">
-        <!-- Líneas Cuartos de Final a Semifinales -->
-        <line x1="150" y1="50" x2="250" y2="100" stroke="#FF5722" stroke-width="2" />
-        <line x1="150" y1="100" x2="250" y2="150" stroke="#FF5722" stroke-width="2" />
-        <line x1="150" y1="150" x2="250" y2="200" stroke="#FF5722" stroke-width="2" />
-        <line x1="150" y1="200" x2="250" y2="250" stroke="#FF5722" stroke-width="2" />
-
-        <!-- Líneas Semifinales a Final -->
-        <line x1="250" y1="50" x2="350" y2="100" stroke="#FF5722" stroke-width="2" />
-        <line x1="250" y1="150" x2="350" y2="200" stroke="#FF5722" stroke-width="2" />
-
-        <!-- Línea Final a Gran Campeón -->
-        <line x1="350" y1="50" x2="450" y2="100" stroke="#FF5722" stroke-width="2" />
-    </svg>
 
     <!-- Barra lateral de inicio de sesión -->
     <div id="login-sidebar" class="login-sidebar">
