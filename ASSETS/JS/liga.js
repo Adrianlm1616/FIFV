@@ -310,7 +310,16 @@ juegos: [
 
 // Función para llenar la tabla con los datos de los partidos
 function cargarCalendario() {
-    const calendario = document.getElementById('calendario').getElementsByTagName('tbody')[0];
+    const calendario = document.getElementById('calendario');
+    if (!calendario) {
+        console.error("No se encontró el elemento con id 'calendario'");
+        return;
+    }
+    const tbody = calendario.getElementsByTagName('tbody')[0];
+    if (!tbody) {
+        console.error("No se encontró el elemento <tbody> dentro del calendario");
+        return;
+    }
 
     // Función para agregar partidos de cada fecha a la tabla
     function agregarPartidos(fecha, numeroFecha) {
@@ -377,6 +386,7 @@ let equipos = {
 function actualizarTablaPosiciones() {
     // Procesar los resultados de los partidos
     partidos.forEach(partido => {
+        fecha.juegos.forEach(partido => {
         // Solo procesar partidos finalizados
         if (partido.estado_partido === 1) {
             // Actualizar partidos jugados
@@ -409,6 +419,7 @@ function actualizarTablaPosiciones() {
                 equipos[partido.equipo_visitante].PTS += 1; // 1 punto para el visitante
             }
         }
+    });
     });
 
     // Ordenar equipos por puntos, diferencia de goles, goles a favor, y alfabéticamente
