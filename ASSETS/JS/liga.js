@@ -1,6 +1,4 @@
-// Código del archivo liga.js
-
-// Firebase configuration (asegúrate de tener configurada la base de datos correctamente)
+// Firebase configuration
 const firebaseConfig = {
     apiKey: "AIzaSyBjcVSfnYWXoGPKOk_EQK4Izi8X03WnhZI",
     authDomain: "base-de-datos-tabla-liga.firebaseapp.com",
@@ -25,7 +23,7 @@ function mostrarTablaPosiciones() {
             const equipo = doc.data();
             equipos.push({
                 id: doc.id,
-                nombre: doc.id,
+                nombre: equipo.equipo,
                 partidos: equipo.PJ,
                 victorias: equipo.V,
                 empates: equipo.E,
@@ -52,7 +50,7 @@ function mostrarTablaPosiciones() {
         });
 
         // Llenar la tabla con los datos ordenados
-        tabla.innerHTML = "";
+        tabla.innerHTML = ""; // Limpiar la tabla antes de agregar nuevos datos
         equipos.forEach((equipo, index) => {
             const row = document.createElement("tr");
             row.innerHTML = `
@@ -148,5 +146,3 @@ document.getElementById("reiniciar-tabla").addEventListener("click", function() 
 window.onload = function() {
     mostrarTablaPosiciones();
 };
-
-
