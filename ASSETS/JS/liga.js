@@ -1,4 +1,3 @@
-
 // Inicializar los partidos y fechas desde localStorage, si no existe, se carga el calendario por defecto
 let calendario = JSON.parse(localStorage.getItem("calendario")) || [
     { fecha: 1, equipo1: "Arsenal", equipo2: "Atlético Madrid", resultado: "", terminado: false },
