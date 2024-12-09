@@ -1,4 +1,4 @@
-let partidos = [
+export let partidos = [
     {
 // Fecha 1 - 4 partidos
 fecha: 1,
@@ -350,7 +350,7 @@ function cargarCalendario() {
 
 //tabla de posiciones
 
-let tecnicos = {
+export let tecnicos = {
     'Arsenal': 'Adrian Lara',
     'Liverpool': 'Camilo Paez',
     'Bayern Munich': 'Carlos Ortega',
@@ -362,7 +362,7 @@ let tecnicos = {
 };
 
 // Definir la estructura de la tabla de posiciones
-let equipos = {
+export let equipos = {
     'Arsenal': { PJ: 0, PG: 0, PE: 0, PP: 0, GF: 0, GC: 0, GD: 0, PTS: 0 },
     'Liverpool': { PJ: 0, PG: 0, PE: 0, PP: 0, GF: 0, GC: 0, GD: 0, PTS: 0 },
     'Bayern Munich': { PJ: 0, PG: 0, PE: 0, PP: 0, GF: 0, GC: 0, GD: 0, PTS: 0 },

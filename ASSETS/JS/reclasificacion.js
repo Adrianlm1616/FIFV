@@ -1,121 +1,72 @@
-// Verificar si hay datos almacenados en localStorage
-const equipos = JSON.parse(localStorage.getItem('equipos')) || [
-    { equipo: "Arsenal", tecnico: "Adrian Lara", partidos: 0, victorias: 0, empates: 0, derrotas: 0, golesFavor: 0, golesContra: 0 },
-    { equipo: "Atl. Madrid", tecnico: "Jorge Castro", partidos: 0, victorias: 0, empates: 0, derrotas: 0, golesFavor: 0, golesContra: 0 },
-    { equipo: "Bayern Munich", tecnico: "Carlos Ortega", partidos: 0, victorias: 0, empates: 0, derrotas: 0, golesFavor: 0, golesContra: 0 },
-    { equipo: "Barcelona", tecnico: "Sebastian Flaco", partidos: 0, victorias: 0, empates: 0, derrotas: 0, golesFavor: 0, golesContra: 0 },
-    { equipo: "Liverpool", tecnico: "Camilo Paez", partidos: 0, victorias: 0, empates: 0, derrotas: 0, golesFavor: 0, golesContra: 0 },
-    { equipo: "Man. City", tecnico: "Tovar", partidos: 0, victorias: 0, empates: 0, derrotas: 0, golesFavor: 0, golesContra: 0 },
-    { equipo: "PSG", tecnico: "Daniel Fandiño", partidos: 0, victorias: 0, empates: 0, derrotas: 0, golesFavor: 0, golesContra: 0 },
-    { equipo: "Real Madrid", tecnico: "Extra", partidos: 0, victorias: 0, empates: 0, derrotas: 0, golesFavor: 0, golesContra: 0 }
-];
+import { partidos, equipos } from './liga';
 
-// Calcular puntos y diferencia de gol
-function calcularPuntosYDiferenciaDeGol() {
-    equipos.forEach(equipo => {
-        equipo.diferenciaGol = equipo.golesFavor - equipo.golesContra;
-        equipo.puntos = equipo.victorias * 3 + equipo.empates; // 3 puntos por victoria y 1 por empate
-    });
-}
+function procesarResultados() {
+    partidos.forEach(fecha => {
+        fecha.juegos.forEach(partido => {
+            if (partido.estado_partido === 1) { // Solo procesar partidos finalizados
+                equipos[partido.equipo_local].PJ++;
+                equipos[partido.equipo_visitante].PJ++;
 
-// Ordenar equipos según puntos, diferencia de gol, y nombre
-function ordenarEquipos() {
-    equipos.sort((a, b) => {
-        if (b.puntos !== a.puntos) {
-            return b.puntos - a.puntos;
-        } else if (b.diferenciaGol !== a.diferenciaGol) {
-            return b.diferenciaGol - a.diferenciaGol;
-        } else {
-            return a.equipo.localeCompare(b.equipo); // Orden alfabético si hay empate en puntos y diferencia de gol
-        }
-    });
-}
+                equipos[partido.equipo_local].GF += partido.goles_equipo_local;
+                equipos[partido.equipo_local].GC += partido.goles_equipo_visitante;
+                equipos[partido.equipo_visitante].GF += partido.goles_equipo_visitante;
+                equipos[partido.equipo_visitante].GC += partido.goles_equipo_local;
 
-// Mostrar la tabla en el HTML
-function mostrarTabla() {
-    const tablaPosiciones = document.getElementById("tabla-posiciones");
-    tablaPosiciones.innerHTML = ""; // Limpiar tabla
+                equipos[partido.equipo_local].GD = equipos[partido.equipo_local].GF - equipos[partido.equipo_local].GC;
+                equipos[partido.equipo_visitante].GD = equipos[partido.equipo_visitante].GF - equipos[partido.equipo_visitante].GC;
 
-    calcularPuntosYDiferenciaDeGol();
-    ordenarEquipos();
-
-    equipos.forEach((equipo, index) => {
-        const row = document.createElement("tr");
-        row.innerHTML = `
-            <td>${index + 1}</td>
-            <td>${equipo.equipo}</td>
-            <td>${equipo.tecnico}</td>
-            <td>${equipo.partidos}</td>
-            <td>${equipo.victorias}</td>
-            <td>${equipo.empates}</td>
-            <td>${equipo.derrotas}</td>
-            <td>${equipo.golesFavor}</td>
-            <td>${equipo.golesContra}</td>
-            <td>${equipo.diferenciaGol}</td>
-            <td>${equipo.puntos}</td>
-        `;
-        tablaPosiciones.appendChild(row);
-    });
-}
-
-document.addEventListener("DOMContentLoaded", mostrarTabla);
-
-// Función para reiniciar la tabla a cero
-function reiniciarTabla() {
-    // Recorre todos los equipos y pone sus estadísticas a cero
-    equipos.forEach(equipo => {
-        equipo.victorias = 0;
-        equipo.empates = 0;
-        equipo.derrotas = 0;
-        equipo.golesFavor = 0;
-        equipo.golesContra = 0;
-        equipo.diferenciaGol = 0;
-        equipo.puntos = 0;
-        equipo.partidos = 0; // Reinicia los partidos jugados a 0
+                if (partido.goles_equipo_local > partido.goles_equipo_visitante) {
+                    equipos[partido.equipo_local].PG++;
+                    equipos[partido.equipo_visitante].PP++;
+                    equipos[partido.equipo_local].PTS += 3;
+                } else if (partido.goles_equipo_local < partido.goles_equipo_visitante) {
+                    equipos[partido.equipo_visitante].PG++;
+                    equipos[partido.equipo_local].PP++;
+                    equipos[partido.equipo_visitante].PTS += 3;
+                } else {
+                    equipos[partido.equipo_local].PE++;
+                    equipos[partido.equipo_visitante].PE++;
+                    equipos[partido.equipo_local].PTS++;
+                    equipos[partido.equipo_visitante].PTS++;
+                }
+            }
+        });
     });
 
-    // Guardamos los equipos actualizados con las estadísticas en cero en localStorage
-    localStorage.setItem('equipos', JSON.stringify(equipos));
-
-    // Muestra un mensaje de éxito
-    alert("La tabla ha sido reiniciada.");
-    
-    // Actualiza la tabla en la página
-    mostrarTabla();
-}
-
-// Añadir un evento al botón "Reiniciar tabla"
-document.getElementById('reiniciar-tabla').addEventListener('click', reiniciarTabla);
-
-// Función para actualizar estadísticas cuando se envía el formulario
-document.getElementById('form-config').addEventListener('submit', function(event) {
-    event.preventDefault(); // Evitar la recarga de la página
-
-    const equipoSeleccionado = document.getElementById('equipo').value;
-    const partidos = parseInt(document.getElementById('partidos').value);  // Número de partidos jugados
-    const victorias = parseInt(document.getElementById('victorias').value);
-    const empates = parseInt(document.getElementById('empates').value);
-    const derrotas = parseInt(document.getElementById('derrotas').value);
-    const golesFavor = parseInt(document.getElementById('golesFavor').value);
-    const golesContra = parseInt(document.getElementById('golesContra').value);
-
-    // Buscar el equipo en la lista y actualizar sus estadísticas
-    const equipo = equipos.find(e => e.equipo === equipoSeleccionado);
-    if (equipo) {
-        // Sumar las nuevas estadísticas a las existentes
-        equipo.partidos += partidos; // Sumar partidos jugados
-        equipo.victorias += victorias;
-        equipo.empates += empates;
-        equipo.derrotas += derrotas;
-        equipo.golesFavor += golesFavor;
-        equipo.golesContra += golesContra;
-    }
-
-    // Guardar la nueva información en localStorage
-    localStorage.setItem('equipos', JSON.stringify(equipos));
-
-    alert("Estadísticas actualizadas con éxito");
-
-    // Actualiza la tabla de posiciones en la página
-    mostrarTabla();
+// Ordenar equipos por puntos, diferencia de goles, goles a favor, y alfabéticamente
+let equiposOrdenados = Object.entries(equipos)
+.sort((a, b) => {
+    // Comparar puntos
+    if (b[1].PTS !== a[1].PTS) return b[1].PTS - a[1].PTS;
+    // Comparar diferencia de goles
+    if (b[1].GD !== a[1].GD) return b[1].GD - a[1].GD;
+    // Comparar goles a favor
+    if (b[1].GF !== a[1].GF) return b[1].GF - a[1].GF;
+    // Si todo es igual, ordenar alfabéticamente
+    return a[0].localeCompare(b[0]);
 });
+
+// Mostrar la tabla de posiciones en HTML
+const tablaPosiciones = document.getElementById('tabla-reclasificacion').getElementsByTagName('tbody')[0];
+tablaPosiciones.innerHTML = ''; // Limpiar la tabla antes de agregar nuevas filas
+
+equiposOrdenados.forEach((equipo, index) => {
+const row = tablaPosiciones.insertRow();
+row.insertCell(0).textContent = index + 1; // Posición
+row.insertCell(1).textContent = equipo[0]; // Nombre del equipo
+row.insertCell(2).textContent = tecnicos[equipo[0]]; // Técnico
+row.insertCell(3).textContent = equipo[1].PJ; // Partidos Jugados
+row.insertCell(4).textContent = equipo[1].PG; // Victorias
+row.insertCell(5).textContent = equipo[1].PE; // Empates
+row.insertCell(6).textContent = equipo[1].PP; // Derrotas
+row.insertCell(7).textContent = equipo[1].GF; // Goles a Favor
+row.insertCell(8).textContent = equipo[1].GC; // Goles en Contra
+row.insertCell(9).textContent = equipo[1].GD; // Diferencia de Gol
+row.insertCell(10).textContent = equipo[1].PTS; // Puntos
+});
+}
+
+// Llamar a la función para cargar calendario y actualizar posiciones cuando la página cargue
+window.onload = function () {
+actualizarTablaPosiciones();
+};
