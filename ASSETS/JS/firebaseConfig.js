@@ -1,64 +1,60 @@
-// Importar Firebase
-import firebase from "firebase/app";
-import "firebase/firestore";
+// Importar los módulos necesarios de Firebase
+import { initializeApp } from 'firebase/app'; // Inicialización de la app
+import { getFirestore } from 'firebase/firestore'; // Firestore para bases de datos
+import { getAnalytics } from 'firebase/analytics'; // Si quieres usar Analytics
 
 // Configuración de Firebase
 const firebaseConfig = {
-    apiKey: "AIzaSyBjcVSfnYWXoGPKOk_EQK4Izi8X03WnhZI",
-    authDomain: "base-de-datos-tabla-liga.firebaseapp.com",
-    projectId: "base-de-datos-tabla-liga",
-    storageBucket: "base-de-datos-tabla-liga.firebasestorage.app",
-    messagingSenderId: "188257281968",
-    appId: "1:188257281968:web:6d8da10fd7aa9645015875",
-    measurementId: "G-RD3TFS6BNY"
+  apiKey: "AIzaSyBjcVSfnYWXoGPKOk_EQK4Izi8X03WnhZI",
+  authDomain: "base-de-datos-tabla-liga.firebaseapp.com",
+  projectId: "base-de-datos-tabla-liga",
+  storageBucket: "base-de-datos-tabla-liga.firebasestorage.app",
+  messagingSenderId: "188257281968",
+  appId: "1:188257281968:web:6d8da10fd7aa9645015875",
+  measurementId: "G-RD3TFS6BNY"
 };
 
-// Inicializar Firebase
-if (!firebase.apps.length) {
-    firebase.initializeApp(firebaseConfig);
-  } else {
-    firebase.app();
-  }
+// Inicialización de Firebase
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);  // Obtener la referencia a Firestore
+const analytics = getAnalytics(app);  // Inicializar Analytics (si lo usas)
 
-  // Obtener referencia a Firestore
-const db = firebase.firestore();
-
-    // Datos de los otros equipos
+// Datos de los equipos
 const equiposData = [
-    {
-      id: "5NnFdKoTb6WzdHN1QSJv", 
-      equipo: "Bayern Munich", 
-      datos: {
-        PJ: 0,
-        derrotas: 0,
-        diferenciaDeGol: 0,
-        empates: 0,
-        equipo: "Bayern Munich",
-        golesAFavor: 0,
-        golesEnContra: 0,
-        posicion: 5,
-        puntos: 0,
-        tecnico: "Carlos Ortega",
-        victorias: 0
-      }
-    },
-    {
-      id: "gBRIpxKUpmNHWz0bKbXt", // Reemplaza con los otros IDs de los equipos
-      equipo: "Arsenal", 
-      datos: {
-        PJ: 0,
-        derrotas: 0,
-        diferenciaDeGol: 0,
-        empates: 0,
-        equipo: "Arsenal",
-        golesAFavor: 0,
-        golesEnContra: 0,
-        posicion: 1,
-        puntos: 0,
-        tecnico: "Adrian Lara",
-        victorias: 0
-      }
-    },
+  {
+    id: "5NnFdKoTb6WzdHN1QSJv", 
+    equipo: "Bayern Munich", 
+    datos: {
+      PJ: 0,
+      derrotas: 0,
+      diferenciaDeGol: 0,
+      empates: 0,
+      equipo: "Bayern Munich",
+      golesAFavor: 0,
+      golesEnContra: 0,
+      posicion: 5,
+      puntos: 0,
+      tecnico: "Carlos Ortega",
+      victorias: 0
+    }
+  },
+  {
+    id: "gBRIpxKUpmNHWz0bKbXt",
+    equipo: "Arsenal", 
+    datos: {
+      PJ: 0,
+      derrotas: 0,
+      diferenciaDeGol: 0,
+      empates: 0,
+      equipo: "Arsenal",
+      golesAFavor: 0,
+      golesEnContra: 0,
+      posicion: 1,
+      puntos: 0,
+      tecnico: "Adrian Lara",
+      victorias: 0
+    }
+  },
     {
         id: "KLh3R1Ja9Nq0bJHL31sP", // Reemplaza con los otros IDs de los equipos
         equipo: "Chelsea", 
@@ -165,8 +161,8 @@ const equiposData = [
     // ...
   ];
   
-  // Guardar cada equipo
-  equiposData.forEach((equipo) => {
+// Guardar los datos de los equipos en Firestore
+equiposData.forEach((equipo) => {
     db.collection("equipos").doc(equipo.id).set(equipo.datos)
       .then(() => {
         console.log(`Datos de ${equipo.equipo} guardados correctamente.`);
@@ -175,4 +171,6 @@ const equiposData = [
         console.error(`Error al guardar los datos de ${equipo.equipo}: `, error);
       });
   });
+  
+  export { db };  // Exportar Firestore para usarlo en otros archivos si es necesario
   
