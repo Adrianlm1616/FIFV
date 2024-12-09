@@ -14,7 +14,7 @@ body {
 
 /* Estilos para cada ronda */
 .round {
-    margin: 20px 0;
+    margin: 20px;
 }
 
 .round h2 {
@@ -40,21 +40,24 @@ body {
     font-size: 18px;
 }
 
-/* Línea de conexión entre los equipos */
-.matchup:before {
-    content: "";
+/* Estilos para el SVG (líneas de conexión) */
+.connections {
     position: absolute;
-    top: 20px;
-    width: 100%;
-    height: 2px;
-    background-color: #FF5722;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: -1;
 }
 
-.round .matchup:after {
-    content: "";
-    position: absolute;
-    top: 20px;
-    width: 2px;
-    height: 100%;
-    background-color: #FF5722;
+svg line {
+    transition: all 0.3s ease;
+}
+
+/* Asegura que el SVG se adapte al tamaño de la página */
+@media screen and (max-width: 768px) {
+    .connections {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
 }
