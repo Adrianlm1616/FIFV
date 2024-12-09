@@ -44,73 +44,57 @@
         <br>
         <div class="tournament-bracket">
             <h1>Cuadro de Torneo</h1>
-    
+        
             <!-- SVG para las líneas de conexión -->
             <svg id="tournament-lines" xmlns="http://www.w3.org/2000/svg"></svg>
-    
+        
             <!-- Cuartos de Final -->
             <div class="round quarter-finals">
                 <h2>Cuartos de Final</h2>
                 <div class="matchup" id="c1">
-                    <span class="team" id="team1">Liverpool</span> vs <span class="team" id="team2">Arsenal</span>
-                    <button onclick="avanzar('team1', 'team2', 'semi1', 'c1')">Ganador Liverpool</button>
-                    <button onclick="avanzar('team2', 'team1', 'semi1', 'c1')">Ganador Arsenal</button>
+                    <span class="team" id="team1"></span> vs <span class="team" id="team2"></span>
                 </div>
                 <div class="matchup" id="c2">
-                    <span class="team" id="team3">Bayern Munich</span> vs <span class="team" id="team4">Manchester City</span>
-                    <button onclick="avanzar('team3', 'team4', 'semi1', 'c2')">Ganador Bayern Munich</button>
-                    <button onclick="avanzar('team4', 'team3', 'semi1', 'c2')">Ganador Manchester City</button>
+                    <span class="team" id="team3"></span> vs <span class="team" id="team4"></span>
                 </div>
                 <div class="matchup" id="c3">
-                    <span class="team" id="team5">Chelsea</span> vs <span class="team" id="team6">Paris Saint Germain</span>
-                    <button onclick="avanzar('team5', 'team6', 'semi2', 'c3')">Ganador Chelsea</button>
-                    <button onclick="avanzar('team6', 'team5', 'semi2', 'c3')">Ganador PSG</button>
+                    <span class="team" id="team5"></span> vs <span class="team" id="team6"></span>
                 </div>
                 <div class="matchup" id="c4">
-                    <span class="team" id="team7">Atlético de Madrid</span> vs <span class="team" id="team8">Barcelona</span>
-                    <button onclick="avanzar('team7', 'team8', 'semi2', 'c4')">Ganador Atlético Madrid</button>
-                    <button onclick="avanzar('team8', 'team7', 'semi2', 'c4')">Ganador Barcelona</button>
+                    <span class="team" id="team7"></span> vs <span class="team" id="team8"></span>
                 </div>
             </div>
-    
+        
             <!-- Semifinales -->
             <div class="round semi-finals">
                 <h2>Semifinales</h2>
-                <div class="matchup">
-                    <span class="team" id="semi1">Ganador C1</span> vs <span class="team" id="semi2">Ganador C2</span>
-                    <button onclick="avanzar('semi1', 'semi2', 'final1')">Ganador Semifinal 1</button>
-                    <button onclick="avanzar('semi2', 'semi1', 'final1')">Ganador Semifinal 2</button>
+                <div class="matchup" id="semi1">
+                    <span class="team" id="semi1-team"></span> vs <span class="team" id="semi2-team"></span>
                 </div>
-                <div class="matchup">
-                    <span class="team" id="semi3">Ganador C3</span> vs <span class="team" id="semi4">Ganador C4</span>
-                    <button onclick="avanzar('semi3', 'semi4', 'final2')">Ganador Semifinal 3</button>
-                    <button onclick="avanzar('semi4', 'semi3', 'final2')">Ganador Semifinal 4</button>
+                <div class="matchup" id="semi2">
+                    <span class="team" id="semi3-team"></span> vs <span class="team" id="semi4-team"></span>
                 </div>
             </div>
-    
+        
             <!-- Final -->
             <div class="round final">
                 <h2>Final</h2>
-                <div class="matchup">
-                    <span class="team" id="final1">Ganador Semifinal 1</span> vs <span class="team" id="final2">Ganador Semifinal 2</span>
-                    <button onclick="avanzar('final1', 'final2', 'champion')">Ganador Final</button>
+                <div class="matchup" id="final">
+                    <span class="team" id="final1"></span> vs <span class="team" id="final2"></span>
                 </div>
             </div>
-    
+        
             <!-- Gran Campeón -->
             <div class="round champion">
                 <h2>Gran Campeón</h2>
                 <div class="matchup">
-                    <span class="team" id="champion">Ganador Final</span>
+                    <span class="team" id="champion"></span>
                 </div>
             </div>
         </div>
-
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
+    
+        <br><br><br><br><br>
+        
         <h2>Calendario del Torneo</h2>
         <table id="calendario" border="1">
             <thead>
@@ -125,7 +109,7 @@
                 <!-- Los partidos se mostrarán aquí -->
             </tbody>
         </table>
-        
+
     <!-- Barra lateral de inicio de sesión -->
     <div id="login-sidebar" class="login-sidebar">
         <div class="login-content">
