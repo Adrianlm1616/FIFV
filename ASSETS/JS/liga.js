@@ -6,10 +6,10 @@ juegos: [
     // Partido 1: Arsenal vs Barcelona
     {
         equipo_local: 'Arsenal',
-        goles_equipo_local: 3,
+        goles_equipo_local: 0,
         equipo_visitante: 'Barcelona',
-        goles_equipo_visitante: 1,
-        estado_partido: 1 // 0 = Pendiente
+        goles_equipo_visitante: 0,
+        estado_partido: 0 // 0 = Pendiente
     },
     // Partido 2: Liverpool vs Chelsea
     {

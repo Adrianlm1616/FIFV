@@ -8,6 +8,7 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;
+    margin-top: 50px; /* Para no tapar contenido por la barra de navegación fija */
 }
 
 /* Barra de navegación */
@@ -28,6 +29,12 @@ header {
     padding: 0 20px;
 }
 
+/* Logo */
+.logo img {
+    width: 100px;
+}
+
+/* Barra de enlaces de navegación */
 .nav-links {
     list-style: none;
     display: flex;
@@ -46,16 +53,77 @@ header {
     background-color: #FF5722;
 }
 
-/* Logo */
-.logo img {
-    width: 100px;
-}
-
 /* Icono de usuario */
 .user-icon img {
     width: 40px;
     height: 40px;
     cursor: pointer;
+}
+
+/* Media Query para pantallas pequeñas (móviles) */
+@media screen and (max-width: 768px) {
+    /* Ocultar enlaces de navegación por defecto en móviles */
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: #333;
+        width: 100%;
+        height: 100vh;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* Estilos para el botón de menú (hamburguesa) */
+    .menu-icon {
+        display: block;
+        width: 30px;
+        height: 3px;
+        background-color: white;
+        position: relative;
+        cursor: pointer;
+    }
+
+    .menu-icon::before,
+    .menu-icon::after {
+        content: "";
+        width: 30px;
+        height: 3px;
+        background-color: white;
+        position: absolute;
+        left: 0;
+        transition: transform 0.3s ease;
+    }
+
+    .menu-icon::before {
+        top: -10px;
+    }
+
+    .menu-icon::after {
+        bottom: -10px;
+    }
+
+    /* Mostrar menú de navegación cuando el ícono de hamburguesa es clickeado */
+    .navbar.active .nav-links {
+        display: flex;
+    }
+
+    /* Estilos del icono del menú cuando se activa */
+    .navbar.active .menu-icon {
+        background-color: transparent;
+    }
+
+    .navbar.active .menu-icon::before {
+        transform: rotate(45deg);
+        top: 0;
+    }
+
+    .navbar.active .menu-icon::after {
+        transform: rotate(-45deg);
+        bottom: 0;
+    }
 }
 
 /* Barra lateral de inicio de sesión */
@@ -77,6 +145,7 @@ header {
     transform: translateX(0);
 }
 
+/* Otros estilos */
 .login-content {
     display: flex;
     flex-direction: column;
@@ -123,21 +192,4 @@ button:hover {
 
 .admin-welcome button:hover {
     background-color: #388E3C;
-}
-
-/* Media query para pantallas pequeñas (móviles) */
-@media screen and (max-width: 768px) {
-    .nav-links {
-        position: absolute;
-        top: 60px;
-        right: 0;
-        background-color: #333;
-        width: 100%;
-        height: 100vh;
-        transform: translateX(100%);
-        transition: transform 0.3s ease-in-out;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
 }

@@ -1,3 +1,14 @@
+// JavaScript para alternar la clase "active" de la barra de navegación
+document.addEventListener("DOMContentLoaded", function() {
+    const navbar = document.querySelector('.navbar');
+    const menuIcon = document.querySelector('.menu-icon');
+
+    // Activar el menú de navegación cuando se hace clic en el ícono hamburguesa
+    menuIcon.addEventListener('click', function() {
+        navbar.classList.toggle('active');
+    });
+});
+
 // Función para abrir/cerrar la barra lateral
 function toggleLogin() {
     document.getElementById("login-sidebar").classList.toggle("active");
