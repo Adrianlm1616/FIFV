@@ -303,11 +303,19 @@ function cargarCalendario() {
             const celdaFecha = row.insertCell(0);
             const celdaPartido = row.insertCell(1);
             const celdaResultado = row.insertCell(2);
+            const celdaEstado = row.insertCell(3);
 
             // Rellenar las celdas con los datos
             celdaFecha.textContent = `Fecha ${numeroFecha}`;
             celdaPartido.textContent = `${partido.equipo_local} vs ${partido.equipo_visitante}`;
             celdaResultado.textContent = `${partido.goles_equipo_local} - ${partido.goles_equipo_visitante}`;
+
+            // Determinar el estado del partido
+            if (partido.estado_partido === 1) {
+                celdaEstado.textContent = "Finalizado"; // Si estado_partido es 1, mostrar "Finalizado"
+            } else {
+                celdaEstado.textContent = "Pendiente"; // Si estado_partido es 0, mostrar "Pendiente"
+            }
         });
     }
     agregarPartidos(fecha1, 1);
