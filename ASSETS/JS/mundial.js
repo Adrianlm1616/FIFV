@@ -226,6 +226,5 @@ function actualizarTablaPosiciones() {
 
 // Llamar a la función para cargar calendario y actualizar posiciones cuando la página cargue
 window.onload = function () {
-    cargarCalendario();
     actualizarTablaPosiciones();
 };
