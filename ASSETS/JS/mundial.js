@@ -205,7 +205,7 @@ function actualizarTablaPosiciones() {
         });
 
     // Mostrar la tabla de posiciones en HTML
-    const tablaPosiciones = document.getElementById('tabla-posiciones').getElementsByTagName('tbody')[0];
+    const tablaPosiciones = document.getElementById('tabla-Mundial').getElementsByTagName('tbody')[0];
     tablaPosiciones.innerHTML = ''; // Limpiar la tabla antes de agregar nuevas filas
 
     equiposOrdenados.forEach((equipo, index) => {
