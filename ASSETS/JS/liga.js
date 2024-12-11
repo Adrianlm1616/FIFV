@@ -144,9 +144,9 @@ juegos: [
     // Partido 4: Arsenal vs Bayern Munich
     {
         equipo_local: 'Arsenal',
-        goles_equipo_local: 0,
+        goles_equipo_local: 1,
         equipo_visitante: 'Bayern Munich',
-        goles_equipo_visitante: 0,
+        goles_equipo_visitante: 2,
         estado_partido: 1
     }
 ]
@@ -182,10 +182,10 @@ juegos: [
     // Partido 4: Man. City vs Barcelona
     {
         equipo_local: 'Man. City',
-        goles_equipo_local: 0,
+        goles_equipo_local: 1,
         equipo_visitante: 'Barcelona',
-        goles_equipo_visitante: 0,
-        estado_partido: 0
+        goles_equipo_visitante: 1,
+        estado_partido: 1
     }
 ]
     },
