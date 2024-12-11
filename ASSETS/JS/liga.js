@@ -60,18 +60,18 @@ juegos: [
     // Partido 3: Liverpool vs Barcelona
     {
         equipo_local: 'Liverpool',
-        goles_equipo_local: 0,
+        goles_equipo_local: 1,
         equipo_visitante: 'Barcelona',
         goles_equipo_visitante: 0,
-        estado_partido: 0
+        estado_partido: 1
     },
     // Partido 4: Bayern Munich vs Atlético Madrid
     {
         equipo_local: 'Bayern Munich',
-        goles_equipo_local: 0,
+        goles_equipo_local: 1,
         equipo_visitante: 'Atlético Madrid',
-        goles_equipo_visitante: 0,
-        estado_partido: 0
+        goles_equipo_visitante: 2,
+        estado_partido: 1
     }
 ]
     },
