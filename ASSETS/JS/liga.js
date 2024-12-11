@@ -107,7 +107,6 @@ juegos: [
     {
         equipo_local: 'Liverpool',
         goles_equipo_local: 1,
-,
         equipo_visitante: 'Bayern Munich',
         goles_equipo_visitante: 1,
         estado_partido: 1
@@ -148,7 +147,7 @@ juegos: [
         goles_equipo_local: 0,
         equipo_visitante: 'Bayern Munich',
         goles_equipo_visitante: 0,
-        estado_partido: 0
+        estado_partido: 1
     }
 ]
     },
