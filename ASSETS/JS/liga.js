@@ -253,7 +253,7 @@ juegos: [
         goles_equipo_local: 0,
         equipo_visitante: 'Liverpool',
         goles_equipo_visitante: 0,
-        estado_partido: 0
+        estado_partido: 1
     },
     // Partido 4: Chelsea vs Barcelona
     {
