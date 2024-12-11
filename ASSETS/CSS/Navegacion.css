@@ -59,7 +59,10 @@ header {
 .menu-icon img {
     width: 30px;
     height: 30px;
-    fill: white;
+}
+.menu-icon i {
+    font-size: 30px;  /* Ajusta el tamaño del icono */
+    color: white;     /* Cambia el color a blanco */
 }
 
 /* Logo */
