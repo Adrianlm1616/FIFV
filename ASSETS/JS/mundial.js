@@ -1,3 +1,4 @@
+let CAMPEON;
 // Campeon de GOD LEAGUE
 let cupo_1= 'Man. City';
 // Campeon de PENGUIN CUP
