@@ -140,9 +140,9 @@ button:hover {
 /* Para dispositivos móviles */
 @media screen and (max-width: 768px) {
     .nav-links {
-        position: absolute;
-        top: 60px;
-        left: -100%; /* Ocultar al principio */
+        position: fixed;
+        top: 0;
+        left: 0; /* Ocultar al principio */
         background-color: #333;
         width: 100%;
         height: 100vh;
@@ -150,11 +150,13 @@ button:hover {
         justify-content: flex-start;
         align-items: flex-start;
         padding: 20px 10px;
+        transform: translateX(-100%);
         transition: left 0.3s ease-in-out;
+        z-index: 1001;
     }
 
     .nav-links.active {
-        left: -100; /* Desplegar el menú */
+        transform: translateX(0); /* Desplegar el menú */
     }
 
     .menu-icon img {
