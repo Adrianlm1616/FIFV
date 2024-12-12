@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jorge Castro</title>
+    <link rel="stylesheet" href="/FIFV/ASSETS/CSS/descripcion.css">
+    <link rel="stylesheet" href="/FIFV/ASSETS/CSS/Navegacion.css">
+    <!-- Agregar Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Barra de navegación -->
+    <header>
+        <nav class="navbar">
+            <!-- Icono de menú hamburguesa -->
+            <div class="menu-icon">
+                <i class="fas fa-bars"></i>
+            </div>
+            
+            <ul class="nav-links">
+                <li><a href="/FIFV/HTML/liga.html">LIGA</a></li>
+                <li><a href="/FIFV/HTML/cup.html">PINGUIN CUP</a></li>
+                <li><a href="/FIFV/HTML/mundial.html">FIFA WORLD CUP</a></li>
+                <li><a href="/FIFV/HTML/supercup.html">THE BEST CUP</a></li>
+                <li><a href="/FIFV/HTML/Reclasificacion.html">RECLASIFICACION</a></li>
+                <li><a href="/FIFV/HTML/jugadores.html">LEYENDAS</a></li>
+            </ul>
+            
+            <div class="logo">
+                <a href="/FIFV/index.html"><img src="/FIFV/ASSETS/IMG/logo fifv-Photoroom.jpg" alt="Logo FIFA" width="100px"></a>
+            </div>
+            <div class="user-icon" onclick="toggleLogin()">
+                <i class="fas fa-user"></i>
+            </div>
+        </nav>
+    </header>
+    <main>
+    <h1>Jorge Castro</h1>
+    <h2>Tecnico Profesional Avalado por la FIFV</h2>
+    <div class="container1">
+        <img src="/FIFV/ASSETS/IMG/tarjeta ortega ea fc 25-Photoroom.png" alt="">
+        <div class="info">
+            <br>
+            <br>
+            <br>
+            <h3>EDAD: 22 años</h3>
+            <h3>PARTIDOS: 15</h3>
+            <h3>VICTORIAS: 7</h3>
+            <h3>EMPATES: 4</h3>
+            <H3>DERROTAS: 4</H3>
+            <H3>GOLES MARCADOS: 25</H3>
+            <H3>GOLES EN CONTRA: 19</H3>
+        </div>
+    </div>
+    <hr>
+    <div class="container2">
+        <div class="valor1">
+            <h2>Valoracion General</h2>
+            <h3>84</h3>
+        </div>
+        <div class="valor2">
+            <h2>Potencial</h2>
+            <h3>90</h3>
+        </div>
+    </div>
+    <hr>
+    <hr>
+    <div class="container3">
+        <h2>PALMARES</h2>
+        <hr>
+        <div class="torneo">
+            <h2>TROFEOS</h2>
+            <div class="godleague">
+                <h3>GOD LEAGUE</h3>
+                <li>CAMPEON GOD LEAGUE EDICION 3</li>
+            </div>
+        </div>
+        <br>
+        <div class="torneo">
+            <h2>DISTINCIONES ESTADISTICAS</h2>
+            <div class="godleague">
+                <h3>GOD LEAGUE</h3>
+                <li>TECNICO MAS GANADOR GOD LEAGUE EDICION 3</li>
+            </div>
+        </div>
+        <br>
+        <div class="torneo">
+            <h2>RECORDS FIFV</h2>
+            <div class="godleague">
+                <li>TECNICO MAS GANADOR DE TITULOS OFICIALES FIFV(1 TITULO)[RECORD COMPARTIDO]</li>
+                <li>TECNICO MAS GANADOR DE TITULOS OFICIALES GOD LEAGUE(1 TITULO)[RECORD COMPARTIDO]</li>
+            </div>
+        </div>
+
+    </div>
+</main>
+
+<!-- Barra lateral de inicio de sesión -->
+<div id="login-sidebar" class="login-sidebar">
+    <div class="login-content">
+        <h2>Iniciar sesión</h2>
+        <form id="login-form">
+            <label for="username">Usuario:</label>
+            <input type="text" id="username" placeholder="Usuario" required>
+            <label for="password">Contraseña:</label>
+            <input type="password" id="password" placeholder="Contraseña" required>
+            <button type="submit">Ingresar</button>
+        </form>
+        <div id="admin-welcome" class="admin-welcome" style="display: none;">
+            <h3>Bienvenido, Admin</h3>
+            <button onclick="configurarTorneos()">Configurar Torneos</button>
+        </div>
+    </div>
+</div>
+
+<script src="/FIFV/ASSETS/JS/navbar.js"></script>
+</body>
+</html>
