@@ -154,7 +154,7 @@ button:hover {
     }
 
     .nav-links.active {
-        left: 0; /* Desplegar el menú */
+        left: -100; /* Desplegar el menú */
     }
 
     .menu-icon img {
