@@ -79,7 +79,7 @@ function verPerfil() {
 
 // Función para redirigir al calendario
 function verCalendario() {
-    window.location.href = "calendario-jugador.html";
+    window.location.href = "/FIFV/HTML/CALENDARIO/calendario-jugador";
 }
 
 // Función para redirigir a los torneos

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calendario de Partidos</title>
+    <link rel="stylesheet" href="/FIFV/ASSETS/CSS/calendario.css">
     <style>
         table {
             width: 100%;
@@ -41,7 +42,7 @@
         </tbody>
     </table>
 
-    <script src="calendario.js"></script>
-    <script src="/ASSETS/JS/liga.js"></script>
+    <script src="/FIFV/ASSETS/JS/navbar.js"></script>
+    <script src="/FIFV/ASSETS/JS/liga.js"></script>
 </body>
 </html>
