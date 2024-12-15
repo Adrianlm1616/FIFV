@@ -32,6 +32,38 @@ document.getElementById("login-form").addEventListener("submit", function(event)
         "Harold Gomez": { name: "Harold Gomez", photo: "harold.jpg", id: 8 }
     };
 
+   export let id-tecnico;
+
+    switch (users.id){
+        case 1:
+            id-tecnico=1;
+        break;
+        case 2:
+            id-tecnico=2;
+        break;
+        case 3:
+            id-tecnico=3;
+        break;
+        case 4:
+            id-tecnico=4;
+        break;
+        case 5:
+            id-tecnico=5;
+        break;
+        case 6:
+            id-tecnico=6;
+        break;
+        case 7:
+            id-tecnico=7;
+        break;
+        case 8:
+            id-tecnico=8;
+        break;
+        case 0:
+            console.log("sin variables")
+        break;
+    }
+
     // Verificamos si las credenciales son correctas
     if (users[username] && password === "admin1234") {
         // Si son correctas, guardamos el usuario y su id en el localStorage

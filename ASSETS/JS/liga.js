@@ -1,3 +1,5 @@
+import id-tecnico from '/FIFV/ASSETS/JS/navbar.js';
+
 export let partidos = [
     {
 // Fecha 1 - 4 partidos
@@ -308,8 +310,35 @@ juegos: [
 
 // calendario.html
 
+switch(id-tecnico){
+    case 1:
+    equipos-select='Barcelona'
+    break;
+    case 2:
+    equipos-select='Arsenal'
+    break;
+    case 3:
+    equipos-select='Atlético Madrid'
+    break;
+    case 4:
+    equipos-select='PSG'
+    break;
+    case 5:
+    equipos-select='Man. City'
+    break;
+    case 6:
+    equipos-select='Liverpool'
+    break;
+    case 7:
+    equipos-select='Bayern Munich'
+    break;
+    case 8:
+    equipos-select='Chelsea'
+    break;
+}
+
 // Función para cargar el calendario filtrado por técnico
-function cargarCalendarioPorTecnico(tecnico) {
+function cargarCalendarioPorTecnico(equipos-select) {
     // Verificar si estamos en la página calendario-jugadores.html
     if (window.location.pathname.includes("calendario-jugadores.html")) {
         const calendario = document.getElementById('calendario-liga');
@@ -329,7 +358,7 @@ function cargarCalendarioPorTecnico(tecnico) {
         // Filtrar y mostrar solo los partidos del equipo del técnico
         partidos.forEach((fecha, numeroFecha) => {
             fecha.juegos.forEach((partido) => {
-                if (partido.equipo_local === tecnico || partido.equipo_visitante === tecnico) {
+                if (partido.equipo_local === equipos-select || partido.equipo_visitante === equipos-select) {
                     // Crear una fila para cada partido del equipo del técnico
                     const row = tbody.insertRow();
 
@@ -395,36 +424,6 @@ function cargarCalendario() {
             }
         });
     });
-}
-
-// Función para manejar el cambio en los filtros
-function aplicarFiltros() {
-    const tecnicoSeleccionado = document.getElementById('filtro-tecnico').value;
-    const equipoSeleccionado = document.getElementById('filtro-equipo').value;
-
-    // Filtrar calendario por técnico
-    if (tecnicoSeleccionado) {
-        cargarCalendarioPorTecnico(tecnicoSeleccionado);
-    } else {
-        cargarCalendario(); // Si no se selecciona técnico, mostrar todos los partidos
-    }
-
-    // Aquí puedes implementar un filtro adicional para la tabla de posiciones si lo deseas
-}
-
-// Función para inicializar los filtros en la barra de navegación
-function initFiltros() {
-    const tecnicoSelect = document.getElementById('filtro-tecnico');
-    const equipoSelect = document.getElementById('filtro-equipo');
-
-    // Evento para filtrar por técnico
-    tecnicoSelect.addEventListener('change', aplicarFiltros);
-
-    // Evento para filtrar por equipo
-    equipoSelect.addEventListener('change', aplicarFiltros);
-
-    // Llamar a la función de filtros por defecto cuando se carga la página
-    aplicarFiltros();
 }
 
 
