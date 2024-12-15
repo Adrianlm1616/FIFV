@@ -65,7 +65,7 @@ function showLoggedInUser(user) {
     document.getElementById("login-sidebar").classList.add("active");
 }
 
-export let id_tecnico;
+export let id_tecnico=0;
 
 switch (users.id){
     case 1:
