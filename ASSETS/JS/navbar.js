@@ -61,11 +61,8 @@ function showLoggedInUser(user) {
             <button onclick="cerrarSesion()">Cerrar Sesión</button>
         </div>
     `;
-    // Mostrar la barra lateral de inicio de sesión
-    document.getElementById("login-sidebar").classList.add("active");
-}
 
-export let id_tecnico=0;
+    export let id_tecnico=0;
 
 switch (user.id){
     case 1:
@@ -95,6 +92,9 @@ switch (user.id){
     default:
     console.log("ID no reconocido");
     break;
+}
+    // Mostrar la barra lateral de inicio de sesión
+    document.getElementById("login-sidebar").classList.add("active");
 }
 
 // Función para cerrar sesión
