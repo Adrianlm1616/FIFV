@@ -32,38 +32,6 @@ document.getElementById("login-form").addEventListener("submit", function(event)
         "Harold Gomez": { name: "Harold Gomez", photo: "harold.jpg", id: 8 }
     };
 
-   export let id_tecnico;
-
-    switch (users.id){
-        case 1:
-            id_tecnico=1;
-        break;
-        case 2:
-            id_tecnico=2;
-        break;
-        case 3:
-            id_tecnico=3;
-        break;
-        case 4:
-            id_tecnico=4;
-        break;
-        case 5:
-            id_tecnico=5;
-        break;
-        case 6:
-            id_tecnico=6;
-        break;
-        case 7:
-            id_tecnico=7;
-        break;
-        case 8:
-            id_tecnico=8;
-        break;
-        default:
-        console.log("ID no reconocido");
-        break;
-    }
-
     // Verificamos si las credenciales son correctas
     if (users[username] && password === "admin1234") {
         // Si son correctas, guardamos el usuario y su id en el localStorage
@@ -95,6 +63,38 @@ function showLoggedInUser(user) {
     `;
     // Mostrar la barra lateral de inicio de sesión
     document.getElementById("login-sidebar").classList.add("active");
+}
+
+export let id_tecnico;
+
+switch (users.id){
+    case 1:
+        id_tecnico=1;
+    break;
+    case 2:
+        id_tecnico=2;
+    break;
+    case 3:
+        id_tecnico=3;
+    break;
+    case 4:
+        id_tecnico=4;
+    break;
+    case 5:
+        id_tecnico=5;
+    break;
+    case 6:
+        id_tecnico=6;
+    break;
+    case 7:
+        id_tecnico=7;
+    break;
+    case 8:
+        id_tecnico=8;
+    break;
+    default:
+    console.log("ID no reconocido");
+    break;
 }
 
 // Función para cerrar sesión
