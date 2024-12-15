@@ -67,7 +67,7 @@ function showLoggedInUser(user) {
 
 export let id_tecnico=0;
 
-switch (users.id){
+switch (user.id){
     case 1:
         id_tecnico=1;
     break;
