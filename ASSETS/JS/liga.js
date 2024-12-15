@@ -1,4 +1,4 @@
-import id_tecnico from '/FIFV/ASSETS/JS/navbar.js';
+import {id_tecnico} from '/FIFV/ASSETS/JS/navbar.js';
 
 export let partidos = [
     {
