@@ -77,11 +77,6 @@ function verPerfil() {
     window.location.href = "perfil.html";
 }
 
-// Función para redirigir al calendario
-function verCalendario() {
-    window.location.href = "/FIFV/HTML/CALENDARIO/calendario-jugador";
-}
-
 // Función para redirigir a los torneos
 function verTorneos() {
     window.location.href = "torneos.html";
