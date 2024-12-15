@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendario de Partidos</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Calendario de Partidos</h1>
+
+    <h2>Partidos de <span id="tecnico-nombre"></span></h2>
+    <br>
+    <h2>GOD LEAGUE</h2>
+    <br>
+
+    <table id="calendario-liga">
+        <thead>
+            <tr>
+                <th>Fecha</th>
+                <th>Partido</th>
+                <th>Resultado</th>
+                <th>Estado</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Aquí se llenarán los partidos filtrados -->
+        </tbody>
+    </table>
+
+    <script src="calendario.js"></script>
+    <script src="/ASSETS/JS/liga.js"></script>
+</body>
+</html>

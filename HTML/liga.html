@@ -72,27 +72,27 @@
     </main></center>
 
     <!-- Barra lateral de inicio de sesión -->
-    <div id="login-sidebar" class="login-sidebar">
-        <div class="login-content">
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <h2>Iniciar sesión</h2>
-            <form id="login-form">
-                <label for="username">Usuario:</label>
-                <input type="text" id="username" placeholder="Usuario" required>
-                <label for="password">Contraseña:</label>
-                <input type="password" id="password" placeholder="Contraseña" required>
-                <button type="submit">Ingresar</button>
-            </form>
-            <div id="admin-welcome" class="admin-welcome" style="display: none;">
-                <h3>Bienvenido, Admin</h3>
-                <button onclick="configurarTorneos()">Configurar Torneos</button>
-            </div>
+<div id="login-sidebar" class="login-sidebar">
+    <div class="login-content" id="login-content">
+        <h2>Iniciar sesión</h2>
+        <form id="login-form">
+            <label for="username">Usuario:</label>
+            <input type="text" id="username" placeholder="Usuario" required>
+            <label for="password">Contraseña:</label>
+            <input type="password" id="password" placeholder="Contraseña" required>
+            <button type="submit">Ingresar</button>
+        </form>
+        <div id="user-welcome" class="user-welcome" style="display: none;">
+            <img id="user-photo" src="" alt="Foto de perfil" width="100px">
+            <h3 id="user-name">Bienvenido</h3>
+            <button onclick="verPerfil()">Ver Perfil</button>
+            <button onclick="verCalendario()">Ver Calendario</button>
+            <button onclick="verTorneos()">Ver Torneos</button>
+            <button onclick="cerrarSesion()">Cerrar Sesión</button>
         </div>
     </div>
+</div>
+
     <script src="/FIFV/ASSETS/JS/navbar.js"></script>
     <script type="module" src="/FIFV/ASSETS/JS/liga.js"></script>
 

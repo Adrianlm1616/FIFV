@@ -308,11 +308,61 @@ juegos: [
 
 // calendario.html
 
-// Función para llenar la tabla con los datos de los partidos
+// Función para cargar el calendario filtrado por técnico
+function cargarCalendarioPorTecnico(tecnico) {
+    // Verificar si estamos en la página calendario-jugadores.html
+    if (window.location.pathname.includes("calendario-jugadores.html")) {
+        const calendario = document.getElementById('calendario-liga');
+        if (!calendario) {
+            console.error("No se encontró el elemento con id 'calendario-liga'");
+            return;
+        }
+        const tbody = calendario.getElementsByTagName('tbody')[0];
+        if (!tbody) {
+            console.error("No se encontró el elemento <tbody> dentro del calendario");
+            return;
+        }
+
+        // Limpiar la tabla antes de llenarla con los partidos filtrados
+        tbody.innerHTML = '';
+
+        // Filtrar y mostrar solo los partidos del equipo del técnico
+        partidos.forEach((fecha, numeroFecha) => {
+            fecha.juegos.forEach((partido) => {
+                if (partido.equipo_local === tecnico || partido.equipo_visitante === tecnico) {
+                    // Crear una fila para cada partido del equipo del técnico
+                    const row = tbody.insertRow();
+
+                    // Crear celdas para cada columna de la fila
+                    const celdaFecha = row.insertCell(0);
+                    const celdaPartido = row.insertCell(1);
+                    const celdaResultado = row.insertCell(2);
+                    const celdaEstado = row.insertCell(3);
+
+                    // Rellenar las celdas con los datos
+                    celdaFecha.textContent = `Fecha ${numeroFecha}`;
+                    celdaPartido.textContent = `${partido.equipo_local} vs ${partido.equipo_visitante}`;
+                    celdaResultado.textContent = `${partido.goles_equipo_local} - ${partido.goles_equipo_visitante}`;
+
+                    // Determinar el estado del partido
+                    if (partido.estado_partido === 1) {
+                        celdaEstado.textContent = "Finalizado";
+                    } else {
+                        celdaEstado.textContent = "Pendiente";
+                    }
+                }
+            });
+        });
+    } else {
+        console.log("No se aplica filtro en esta página.");
+    }
+}
+
+// Función para llenar la tabla con todos los partidos sin filtro (calendario completo)
 function cargarCalendario() {
-    const calendario = document.getElementById('calendario');
+    const calendario = document.getElementById('calendario-liga');
     if (!calendario) {
-        console.error("No se encontró el elemento con id 'calendario'");
+        console.error("No se encontró el elemento con id 'calendario-liga'");
         return;
     }
     const tbody = calendario.getElementsByTagName('tbody')[0];
@@ -324,7 +374,6 @@ function cargarCalendario() {
     // Función para agregar partidos de cada fecha a la tabla
     partidos.forEach((fecha, numeroFecha) => {
         fecha.juegos.forEach((partido) => {
-            // Crear una fila para cada partido
             const row = tbody.insertRow();
 
             // Crear celdas para cada columna de la fila
@@ -340,13 +389,44 @@ function cargarCalendario() {
 
             // Determinar el estado del partido
             if (partido.estado_partido === 1) {
-                celdaEstado.textContent = "Finalizado"; // Si estado_partido es 1, mostrar "Finalizado"
+                celdaEstado.textContent = "Finalizado";
             } else {
-                celdaEstado.textContent = "Pendiente"; // Si estado_partido es 0, mostrar "Pendiente"
+                celdaEstado.textContent = "Pendiente";
             }
         });
-        });
+    });
 }
+
+// Función para manejar el cambio en los filtros
+function aplicarFiltros() {
+    const tecnicoSeleccionado = document.getElementById('filtro-tecnico').value;
+    const equipoSeleccionado = document.getElementById('filtro-equipo').value;
+
+    // Filtrar calendario por técnico
+    if (tecnicoSeleccionado) {
+        cargarCalendarioPorTecnico(tecnicoSeleccionado);
+    } else {
+        cargarCalendario(); // Si no se selecciona técnico, mostrar todos los partidos
+    }
+
+    // Aquí puedes implementar un filtro adicional para la tabla de posiciones si lo deseas
+}
+
+// Función para inicializar los filtros en la barra de navegación
+function initFiltros() {
+    const tecnicoSelect = document.getElementById('filtro-tecnico');
+    const equipoSelect = document.getElementById('filtro-equipo');
+
+    // Evento para filtrar por técnico
+    tecnicoSelect.addEventListener('change', aplicarFiltros);
+
+    // Evento para filtrar por equipo
+    equipoSelect.addEventListener('change', aplicarFiltros);
+
+    // Llamar a la función de filtros por defecto cuando se carga la página
+    aplicarFiltros();
+}
+
 
 //tabla de posiciones
 
@@ -451,3 +531,4 @@ window.onload = function () {
     cargarCalendario();
     actualizarTablaPosiciones();
 };
+
