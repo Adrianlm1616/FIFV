@@ -47,6 +47,7 @@ document.getElementById("login-form").addEventListener("submit", function(event)
         alert("Usuario o contraseña incorrectos.");
     }
 });
+export let id_tecnico=0;
 
 // Mostrar la información del usuario logueado
 function showLoggedInUser(user) {
@@ -61,8 +62,6 @@ function showLoggedInUser(user) {
             <button onclick="cerrarSesion()">Cerrar Sesión</button>
         </div>
     `;
-
-    export let id_tecnico=0;
 
 switch (user.id){
     case 1:
