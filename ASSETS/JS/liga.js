@@ -1,4 +1,4 @@
-import id-tecnico from '/FIFV/ASSETS/JS/navbar.js';
+import id_tecnico from '/FIFV/ASSETS/JS/navbar.js';
 
 export let partidos = [
     {
@@ -310,35 +310,35 @@ juegos: [
 
 // calendario.html
 
-switch(id-tecnico){
+switch(id_tecnico){
     case 1:
-    equipos-select='Barcelona'
+    equipos_select='Barcelona';
     break;
     case 2:
-    equipos-select='Arsenal'
+    equipos_select='Arsenal';
     break;
     case 3:
-    equipos-select='Atlético Madrid'
+    equipos_select='Atlético Madrid';
     break;
     case 4:
-    equipos-select='PSG'
+    equipos_select='PSG';
     break;
     case 5:
-    equipos-select='Man. City'
+    equipos_select='Man. City';
     break;
     case 6:
-    equipos-select='Liverpool'
+    equipos_select='Liverpool';
     break;
     case 7:
-    equipos-select='Bayern Munich'
+    equipos_select='Bayern Munich';
     break;
     case 8:
-    equipos-select='Chelsea'
+    equipos_select='Chelsea';
     break;
 }
 
 // Función para cargar el calendario filtrado por técnico
-function cargarCalendarioPorTecnico(equipos-select) {
+function cargarCalendarioPorTecnico(equipos_select) {
     // Verificar si estamos en la página calendario-jugadores.html
     if (window.location.pathname.includes("calendario-jugadores.html")) {
         const calendario = document.getElementById('calendario-liga');
@@ -358,7 +358,7 @@ function cargarCalendarioPorTecnico(equipos-select) {
         // Filtrar y mostrar solo los partidos del equipo del técnico
         partidos.forEach((fecha, numeroFecha) => {
             fecha.juegos.forEach((partido) => {
-                if (partido.equipo_local === equipos-select || partido.equipo_visitante === equipos-select) {
+                if (partido.equipo_local === equipos_select || partido.equipo_visitante === equipos_select) {
                     // Crear una fila para cada partido del equipo del técnico
                     const row = tbody.insertRow();
 

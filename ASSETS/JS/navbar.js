@@ -32,35 +32,35 @@ document.getElementById("login-form").addEventListener("submit", function(event)
         "Harold Gomez": { name: "Harold Gomez", photo: "harold.jpg", id: 8 }
     };
 
-   export let id-tecnico;
+   export let id_tecnico;
 
     switch (users.id){
         case 1:
-            id-tecnico=1;
+            id_tecnico=1;
         break;
         case 2:
-            id-tecnico=2;
+            id_tecnico=2;
         break;
         case 3:
-            id-tecnico=3;
+            id_tecnico=3;
         break;
         case 4:
-            id-tecnico=4;
+            id_tecnico=4;
         break;
         case 5:
-            id-tecnico=5;
+            id_tecnico=5;
         break;
         case 6:
-            id-tecnico=6;
+            id_tecnico=6;
         break;
         case 7:
-            id-tecnico=7;
+            id_tecnico=7;
         break;
         case 8:
-            id-tecnico=8;
+            id_tecnico=8;
         break;
-        case 0:
-            console.log("sin variables")
+        default:
+        console.log("ID no reconocido");
         break;
     }
 
