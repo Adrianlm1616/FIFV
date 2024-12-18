@@ -169,10 +169,10 @@ const equipos = [
     { nombre: "Arsenal", id: "team2" },
     { nombre: "Bayern Munich", id: "team3" },
     { nombre: "Manchester City", id: "team4" },
-    { nombre: "Chelsea", id: "team5" },
+    { nombre: "Barcelona", id: "team5" },
     { nombre: "Paris Saint Germain", id: "team6" },
-    { nombre: "Atlético de Madrid", id: "team7" },
-    { nombre: "Barcelona", id: "team8" },
+    { nombre: "AC Milan", id: "team7" },
+    { nombre: "Chelsea", id: "team8" },
 ];
 
 // Función para llenar los equipos en los cuadros de enfrentamiento
